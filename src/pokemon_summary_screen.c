@@ -786,6 +786,10 @@ static const union AnimCmd sSpriteAnim_TypeSteel[] = {
     ANIMCMD_FRAME(TYPE_STEEL * 8, 0, FALSE, FALSE),
     ANIMCMD_END
 };
+static const union AnimCmd sSpriteAnim_TypeDragon[] = {
+    ANIMCMD_FRAME(TYPE_DRAGON * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
 static const union AnimCmd sSpriteAnim_TypeMystery[] = {
     ANIMCMD_FRAME(TYPE_MYSTERY * 8, 0, FALSE, FALSE),
     ANIMCMD_END
@@ -814,12 +818,20 @@ static const union AnimCmd sSpriteAnim_TypeIce[] = {
     ANIMCMD_FRAME(TYPE_ICE * 8, 0, FALSE, FALSE),
     ANIMCMD_END
 };
-static const union AnimCmd sSpriteAnim_TypeDragon[] = {
-    ANIMCMD_FRAME(TYPE_DRAGON * 8, 0, FALSE, FALSE),
-    ANIMCMD_END
-};
 static const union AnimCmd sSpriteAnim_TypeDark[] = {
     ANIMCMD_FRAME(TYPE_DARK * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeFairy[] = {
+    ANIMCMD_FRAME(TYPE_FAIRY * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeAural[] = {
+    ANIMCMD_FRAME(TYPE_AURAL * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeAstral[] = {
+    ANIMCMD_FRAME(TYPE_ASTRAL * 8, 0, FALSE, FALSE),
     ANIMCMD_END
 };
 static const union AnimCmd sSpriteAnim_CategoryCool[] = {
@@ -852,6 +864,7 @@ static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_MON_TYPES
     sSpriteAnim_TypeBug,
     sSpriteAnim_TypeGhost,
     sSpriteAnim_TypeSteel,
+    sSpriteAnim_TypeDragon,
     sSpriteAnim_TypeMystery,
     sSpriteAnim_TypeFire,
     sSpriteAnim_TypeWater,
@@ -859,8 +872,10 @@ static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_MON_TYPES
     sSpriteAnim_TypeElectric,
     sSpriteAnim_TypePsychic,
     sSpriteAnim_TypeIce,
-    sSpriteAnim_TypeDragon,
     sSpriteAnim_TypeDark,
+    sSpriteAnim_TypeFairy,
+    sSpriteAnim_TypeAural,
+    sSpriteAnim_TypeAstral,
     sSpriteAnim_CategoryCool,
     sSpriteAnim_CategoryBeauty,
     sSpriteAnim_CategoryCute,
@@ -895,6 +910,7 @@ static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIE
     [TYPE_BUG] = 15,
     [TYPE_GHOST] = 14,
     [TYPE_STEEL] = 13,
+    [TYPE_DRAGON] = 15,
     [TYPE_MYSTERY] = 15,
     [TYPE_FIRE] = 13,
     [TYPE_WATER] = 14,
@@ -902,8 +918,10 @@ static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIE
     [TYPE_ELECTRIC] = 13,
     [TYPE_PSYCHIC] = 14,
     [TYPE_ICE] = 14,
-    [TYPE_DRAGON] = 15,
     [TYPE_DARK] = 13,
+    [TYPE_FAIRY] = 14,
+    [TYPE_AURAL] = 15,
+    [TYPE_ASTRAL] = 14,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_COOL] = 13,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_BEAUTY] = 14,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_CUTE] = 14,

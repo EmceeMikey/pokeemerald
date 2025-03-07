@@ -17,7 +17,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 40,
-        .type = TYPE_NORMAL,
+        .type = TYPE_ASTRAL,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
@@ -433,7 +433,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 35,
-        .type = TYPE_NORMAL,
+        .type = TYPE_AURAL,
         .accuracy = 95,
         .pp = 35,
         .secondaryEffectChance = 0,
