@@ -1417,6 +1417,30 @@ static const u8 sPsychoBoostDescription[] = _(
     "Allows a full-power attack,\n"
     "but sharply lowers SP. ATK.");
 
+static const u8 sAuraSphereDescription[] = _(
+    "The user awakens its AURA to\n"
+    "launch a wave of pure energy.");
+
+static const u8 sFairyWindDescription[] = _(
+    "A sweet gust of wind is\n"
+    "whirled towards the foe.");
+
+static const u8 sDrainingKissDescription[] = _(
+    "A vampiric kiss that sucks\n"
+    "the life out of the foe.");
+
+static const u8 sPlayRoughDescription[] = _(
+    "The user approaches the\n"
+    "foe with a cute tackle.");
+
+static const u8 sDazzlingGleamDescription[] = _(
+    "The user emits a powerful\n"
+    "flash of light at both foes.");
+
+static const u8 sBoomburstDescription[] = _(
+    "The user lets loose an ear-\n"
+    "splitting scream.");
+
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
 {
@@ -1774,4 +1798,10 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_WATER_PULSE - 1] = sWaterPulseDescription,
     [MOVE_DOOM_DESIRE - 1] = sDoomDesireDescription,
     [MOVE_PSYCHO_BOOST - 1] = sPsychoBoostDescription,
+    [MOVE_AURA_SPHERE - 1] = sAuraSphereDescription,
+    [MOVE_FAIRY_WIND - 1] = sFairyWindDescription,
+    [MOVE_DRAINING_KISS - 1] = sDrainingKissDescription,
+    [MOVE_PLAY_ROUGH - 1] = sPlayRoughDescription,
+    [MOVE_DAZZLING_GLEAM - 1] = sDazzlingGleamDescription,
+    [MOVE_BOOMBURST - 1] = sBoomburstDescription,
 };
