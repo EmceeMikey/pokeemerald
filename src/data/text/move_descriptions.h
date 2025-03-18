@@ -1441,6 +1441,18 @@ static const u8 sBoomburstDescription[] = _(
     "The user lets loose an ear-\n"
     "splitting scream.");
 
+static const u8 sDrumBeatingDescription[] = _(
+    "A powerful beat lowers SPEED\n"
+    "and can become AURAL-type.");
+
+static const u8 sTorchSongDescription[] = _(
+    "A funeral dirge increases SP.\n"
+    "ATK. Can become AURAL-type.");
+
+static const u8 sSparklingAriaDescription[] = _(
+    "A glorious melody heals burns\n"
+    "and can become AURAL-type.");
+
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
 {
@@ -1804,4 +1816,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PLAY_ROUGH - 1] = sPlayRoughDescription,
     [MOVE_DAZZLING_GLEAM - 1] = sDazzlingGleamDescription,
     [MOVE_BOOMBURST - 1] = sBoomburstDescription,
+    [MOVE_DRUM_BEATING - 1] = sDrumBeatingDescription,
+    [MOVE_TORCH_SONG - 1] = sTorchSongDescription,
+    [MOVE_SPARKLING_ARIA - 1] = sSparklingAriaDescription,
 };

@@ -24,7 +24,10 @@
 #define TYPE_FAIRY            18
 #define TYPE_AURAL            19
 #define TYPE_ASTRAL           20
-#define NUMBER_OF_MON_TYPES   21
+#define TYPE_DRUM_BEATING     21
+#define TYPE_TORCH_SONG       22
+#define TYPE_SPARKLING_ARIA   23
+#define NUMBER_OF_MON_TYPES   24
 
 // Pokémon egg groups
 #define EGG_GROUP_NONE                0

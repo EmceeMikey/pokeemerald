@@ -362,8 +362,11 @@
 #define MOVE_PLAY_ROUGH 358
 #define MOVE_DAZZLING_GLEAM 359
 #define MOVE_BOOMBURST 360
+#define MOVE_DRUM_BEATING 361
+#define MOVE_TORCH_SONG 362
+#define MOVE_SPARKLING_ARIA 363
 
-#define MOVES_COUNT 361
+#define MOVES_COUNT 364
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

@@ -834,6 +834,18 @@ static const union AnimCmd sSpriteAnim_TypeAstral[] = {
     ANIMCMD_FRAME(TYPE_ASTRAL * 8, 0, FALSE, FALSE),
     ANIMCMD_END
 };
+static const union AnimCmd sSpriteAnim_TypeDrumBeating[] = {
+    ANIMCMD_FRAME(TYPE_GRASS * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeTorchSong[] = {
+    ANIMCMD_FRAME(TYPE_FIRE * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeSparklingAria[] = {
+    ANIMCMD_FRAME(TYPE_WATER * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
 static const union AnimCmd sSpriteAnim_CategoryCool[] = {
     ANIMCMD_FRAME((CONTEST_CATEGORY_COOL + NUMBER_OF_MON_TYPES) * 8, 0, FALSE, FALSE),
     ANIMCMD_END
@@ -876,6 +888,9 @@ static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_MON_TYPES
     sSpriteAnim_TypeFairy,
     sSpriteAnim_TypeAural,
     sSpriteAnim_TypeAstral,
+    sSpriteAnim_TypeDrumBeating,
+    sSpriteAnim_TypeTorchSong,
+    sSpriteAnim_TypeSparklingAria,
     sSpriteAnim_CategoryCool,
     sSpriteAnim_CategoryBeauty,
     sSpriteAnim_CategoryCute,
@@ -922,6 +937,9 @@ static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIE
     [TYPE_FAIRY] = 14,
     [TYPE_AURAL] = 15,
     [TYPE_ASTRAL] = 14,
+    [TYPE_DRUM_BEATING] = 15,
+    [TYPE_TORCH_SONG] = 13,
+    [TYPE_SPARKLING_ARIA] = 14,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_COOL] = 13,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_BEAUTY] = 14,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_CUTE] = 14,
