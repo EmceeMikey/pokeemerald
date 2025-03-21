@@ -1453,6 +1453,16 @@ static const u8 sSparklingAriaDescription[] = _(
     "A glorious melody heals burns\n"
     "and can become AURAL-type.");
 
+static const u8 sVacuumWaveDescription[] = _(
+    "A swift wave of AURAL energy\n"
+    "is launched at the foe.");
+
+static const u8 sFocusBlastDescription[] = _(
+    "Focus to unleash a wave of\n"
+    "power. May lower SP. DEF.");
+
+
+
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
 {
@@ -1819,4 +1829,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DRUM_BEATING - 1] = sDrumBeatingDescription,
     [MOVE_TORCH_SONG - 1] = sTorchSongDescription,
     [MOVE_SPARKLING_ARIA - 1] = sSparklingAriaDescription,
+    [MOVE_VACUUM_WAVE - 1] = sVacuumWaveDescription,
+    [MOVE_FOCUS_BLAST - 1] = sFocusBlastDescription,
 };
