@@ -2,6 +2,7 @@
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_arena.h"
+#include "battle_aura_flare.h"
 #include "battle_pyramid.h"
 #include "battle_util.h"
 #include "pokemon.h"
