@@ -4643,4 +4643,40 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 290,
         .trainerOffset = 2,
     },
+
+    [NATIONAL_DEX_GLACEON] =
+    {
+        .categoryName = _("FRESH SNOW"),
+        .height = 8,
+        .weight = 259,
+        .description = gGlaceonPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 290,
+        .trainerOffset = 2,
+    },
+
+    [NATIONAL_DEX_LEAFEON] =
+    {
+        .categoryName = _("VERDANT"),
+        .height = 10,
+        .weight = 255,
+        .description = gLeafeonPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 290,
+        .trainerOffset = 2,
+    },
+
+    [NATIONAL_DEX_SYLVEON] =
+    {
+        .categoryName = _("INTERTWINE"),
+        .height = 10,
+        .weight = 235,
+        .description = gSylveonPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 290,
+        .trainerOffset = 2,
+    },
 };
