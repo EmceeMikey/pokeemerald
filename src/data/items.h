@@ -2774,34 +2774,40 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_0E2] =
+    [ITEM_FAIRY_FEATHER] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("FAIRYFEATHER"),
+        .itemId = ITEM_FAIRY_FEATHER,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_FAIRY_POWER,
+        .holdEffectParam = 10,
+        .description = sFairyFeatherDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_0E3] =
+    [ITEM_THROAT_SPRAY] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("THROAT SPRAY"),
+        .itemId = ITEM_THROAT_SPRAY,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_AURAL_POWER,
+        .holdEffectParam = 10,
+        .description = sThroatSprayDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_0E4] =
+    [ITEM_LUNAR_WING] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("LUNAR WING"),
+        .itemId = ITEM_LUNAR_WING,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_ASTRAL_POWER,
+        .holdEffectParam = 10,
+        .description = sLunarWingDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

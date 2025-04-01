@@ -928,6 +928,21 @@ static const u8 sSilkScarfDesc[] = _(
     "raises the power of\n"
     "NORMAL-type moves.");
 
+static const u8 sFairyFeatherDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "FAIRY-type moves.");
+
+static const u8 sThroatSprayDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "AURAL-type moves.");
+
+static const u8 sLunarWingDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "ASTRAL-type moves.");
+
 static const u8 sUpGradeDesc[] = _(
     "A peculiar box made\n"
     "by SILPH CO.");
