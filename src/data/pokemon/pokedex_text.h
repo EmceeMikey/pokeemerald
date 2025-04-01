@@ -5,58 +5,58 @@ const u8 gDummyPokedexText[] = _(
     "at this time.");
 
 const u8 gBulbasaurPokedexText[] = _(
-    "BULBASAUR can be seen napping in bright\n"
-    "sunlight. There is a seed on its back.\n"
-    "By soaking up the sun's rays, the seed\n"
-    "grows progressively larger.");
+    "When it uses its special stick to\n"
+    "strike up a beat, the sound waves made\n"
+    "carry revitalizing energy to the\n"
+    "nearby plants and flowers.");
 
 const u8 gIvysaurPokedexText[] = _(
-    "To support its bulb, IVYSAUR's legs\n"
-    "grow sturdy. If it spends more time lying in\n"
-    "the sunlight, the bud will soon bloom into\n"
-    "a large flower.");
+    "The faster a THWACKEY can beat\n"
+    "out a rhythm with its two sticks,\n"
+    "the more respect it wins from\n"
+    "its GROOKEY fans.");
 
 const u8 gVenusaurPokedexText[] = _(
-    "VENUSAUR's flower is said to take on vivid\n"
-    "colors if it gets plenty of nutrition and\n"
-    "sunlight. The flower's aroma soothes the\n"
-    "emotions of people.");
+    "By drumming, it taps into the power of\n"
+    "its special tree stump.  The roots of\n"
+    "the stump follow its direction in\n"
+    "battle.");
 
 const u8 gCharmanderPokedexText[] = _(
-    "The flame that burns at the tip of its\n"
-    "tail is an indication of its emotions.\n"
-    "The flame wavers when CHARMANDER is\n"
-    "happy, and blazes when it is enraged.");
+    "Its flame sac is small, so energy is\n"
+    "always leaking out.  This energy is\n"
+    "released from the dent atop FUECOCO's\n"
+    "head and flickers to and fro.");
 
 const u8 gCharmeleonPokedexText[] = _(
-    "Without pity, its sharp claws destroy foes.\n"
-    "If it encounters a strong enemy, it\n"
-    "becomes agitated, and the flame on its\n"
-    "tail flares with a bluish white color.");
+    "The valve in CROCALOR's flame sac is\n"
+    "closely connected to its vocal cords.\n"
+    "This POKéMON utters a guttural cry as \n"
+    "it spews flames every which way.");
 
 const u8 gCharizardPokedexText[] = _(
-    "A CHARIZARD flies about in search of\n"
-    "strong opponents. It breathes intense\n"
-    "flames that can melt any material. However,\n"
-    "it will never torch a weaker foe.");
+    "SKELEDIRGE's gentle singing soothes the\n"
+    "souls of all that hear it.  It burns its\n"
+    "enemies to a crisp with flames of over\n"
+    "5,400 degrees Fahrenheit.");
 
 const u8 gSquirtlePokedexText[] = _(
-    "Its shell is not just for protection.\n"
-    "Its rounded shape and the grooves on its\n"
-    "surface minimize resistance in water,\n"
-    "enabling SQUIRTLE to swim at high speeds.");
+    "POPPLIO likes to get on top of its\n"
+    "bouncy water balloons to jump even\n"
+    "higher than before.  It's\n"
+    "quite the acrobatic fighter!");
 
 const u8 gWartortlePokedexText[] = _(
-    "Its large tail is covered with rich, thick\n"
-    "fur that deepens in color with age.\n"
-    "The scratches on its shell are evidence\n"
-    "of this POKéMON's toughness in battle.");
+    "On nights when the sea is calm,\n"
+    "BRIONNE dance with one another to the\n"
+    "singing of the PRIMARINA that's\n"
+    "leading them.");
 
 const u8 gBlastoisePokedexText[] = _(
-    "The waterspouts that protrude from its\n"
-    "shell are highly accurate. Their bullets of\n"
-    "water can precisely nail tin cans from\n"
-    "a distance of over 160 feet.");
+    "Its singing voice is its chief\n"
+    "weapon in battle.  PRIMARINA's\n"
+    "TRAINER must prioritize the daily\n"
+    "maintenance of its throat.");
 
 const u8 gCaterpiePokedexText[] = _(
     "Its voracious appetite compels it to\n"
@@ -2319,3 +2319,21 @@ const u8 gDeoxysPokedexText[] = _(
     "extraterrestrial virus exposed to a laser\n"
     "beam. Its body is configured for superior\n"
     "agility and speed.");
+
+const u8 gGlaceonPokedexText[] = _(
+    "By controlling its body heat,\n"
+    "it can freeze the atmosphere around\n"
+    "it to make a diamond-dust\n"
+    "flurry.");
+
+const u8 gLeafeonPokedexText[] = _(
+    "It basically does not fight.\n"
+    "With cells similar to those of\n"
+    "plants, it can perform\n"
+    "photosynthesis.");
+
+const u8 gSylveonPokedexText[] = _(
+    "It wraps its ribbonlike feelers\n"
+    "around the arm of its beloved\n"
+    "TRAINER and walks with\n"
+    "him or her.");
