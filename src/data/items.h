@@ -2813,12 +2813,13 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_0E5] =
+    [ITEM_BIG_ROOT] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("BIG ROOT"),
+        .itemId = ITEM_BIG_ROOT,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_BIG_ROOT,
+        .description = sBigRootDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

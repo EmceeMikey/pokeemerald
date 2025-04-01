@@ -6942,9 +6942,14 @@ static void Cmd_stockpiletohpheal(void)
 
 static void Cmd_negativedamage(void)
 {
+    u8 holdEffect;
+    holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerAttacker].item);
+
     gBattleMoveDamage = -(gHpDealt / 2);
     if (gBattleMoveDamage == 0)
         gBattleMoveDamage = -1;
+    if (holdEffect == HOLD_EFFECT_BIG_ROOT)
+        gBattleMoveDamage = (130 * gBattleMoveDamage) / 100;
 
     gBattlescriptCurrInstr++;
 }
