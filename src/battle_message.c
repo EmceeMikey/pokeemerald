@@ -1032,6 +1032,7 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_DIG]        = STRINGID_PKMNDUGHOLE,
     [B_MSG_TURN1_DIVE]       = STRINGID_PKMNHIDUNDERWATER,
     [B_MSG_TURN1_BOUNCE]     = STRINGID_PKMNSPRANGUP,
+    [B_MSG_TURN1_METEOR_BEAM]= STRINGID_PKMNISGLOWING,
 };
 
 // Index copied from move's index in gTrappingMoves

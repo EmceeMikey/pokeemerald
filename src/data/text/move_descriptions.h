@@ -1461,6 +1461,18 @@ static const u8 sFocusBlastDescription[] = _(
     "Focus to unleash a wave of\n"
     "power. May lower SP. DEF.");
 
+static const u8 sLuminaCrashDescription[] = _(
+    "A relentless moon-powered\n"
+    "assault cuts foe SP. DEF.");
+
+static const u8 sMeteorBeamDescription[] = _(
+    "Charges SP. ATK turn 1\n"
+    "to blast the foe turn 2.");
+
+static const u8 sMoonblastDescription[] = _(
+    "A powerful moonbeam is\n"
+    "focused directly on foe.");
+
 
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
@@ -1831,4 +1843,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_SPARKLING_ARIA - 1] = sSparklingAriaDescription,
     [MOVE_VACUUM_WAVE - 1] = sVacuumWaveDescription,
     [MOVE_FOCUS_BLAST - 1] = sFocusBlastDescription,
+    [MOVE_LUMINA_CRASH - 1] = sLuminaCrashDescription,
+    [MOVE_METEOR_BEAM - 1] = sMeteorBeamDescription,
+    [MOVE_MOONBLAST - 1] = sMoonblastDescription,
 };

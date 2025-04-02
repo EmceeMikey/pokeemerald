@@ -432,6 +432,7 @@
 #define B_MSG_TURN1_DIG         5
 #define B_MSG_TURN1_DIVE        6
 #define B_MSG_TURN1_BOUNCE      7
+#define B_MSG_TURN1_METEOR_BEAM 8
 
 // gMoveWeatherChangeStringIds
 #define B_MSG_STARTED_RAIN      0
