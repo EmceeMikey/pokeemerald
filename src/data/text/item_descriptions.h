@@ -394,6 +394,26 @@ static const u8 sLeafStoneDesc[] = _(
     "species of POKéMON\n"
     "evolve.");
 
+static const u8 sDawnStoneDesc[] = _(
+    "Makes certain\n"
+    "species of POKéMON\n"
+    "evolve.");
+
+static const u8 sDuskStoneDesc[] = _(
+    "Makes certain\n"
+    "species of POKéMON\n"
+    "evolve.");
+
+static const u8 sShinyStoneDesc[] = _(
+    "Makes certain\n"
+    "species of POKéMON\n"
+    "evolve.");
+
+static const u8 sIceStoneDesc[] = _(
+    "Makes certain\n"
+    "species of POKéMON\n"
+    "evolve.");
+
 // Valuable items
 static const u8 sTinyMushroomDesc[] = _(
     "A plain mushroom\n"
@@ -544,8 +564,8 @@ static const u8 sLumBerryDesc[] = _(
 
 static const u8 sSitrusBerryDesc[] = _(
     "A hold item that\n"
-    "restores 30 HP in\n"
-    "battle.");
+    "restores 25% of \n"
+    "max HP in battle.");
 
 static const u8 sFigyBerryDesc[] = _(
     "A hold item that\n"
@@ -908,6 +928,21 @@ static const u8 sSilkScarfDesc[] = _(
     "raises the power of\n"
     "NORMAL-type moves.");
 
+static const u8 sFairyFeatherDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "FAIRY-type moves.");
+
+static const u8 sThroatSprayDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "AURAL-type moves.");
+
+static const u8 sLunarWingDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "ASTRAL-type moves.");
+
 static const u8 sUpGradeDesc[] = _(
     "A peculiar box made\n"
     "by SILPH CO.");
@@ -946,6 +981,21 @@ static const u8 sStickDesc[] = _(
     "A hold item that\n"
     "raises FARFETCH'D's\n"
     "critical-hit ratio.");
+
+static const u8 sBigRootDesc[] = _(
+    "A hold item that\n"
+    "boosts the HP drain\n"
+    "from ABSORB, etc.");
+
+static const u8 sWideLensDesc[] = _(
+    "A hold item that\n"
+    "slightly boosts the\n"
+    "accuracy of moves.");
+
+static const u8 sExpertBeltDesc[] = _(
+    "A hold item that\n"
+    "boosts SUPER-\n"
+    "EFFECTIVE moves.");
 
 static const u8 sRedScarfDesc[] = _(
     "A hold item that\n"
