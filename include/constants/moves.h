@@ -367,8 +367,12 @@
 #define MOVE_SPARKLING_ARIA 363
 #define MOVE_VACUUM_WAVE 364
 #define MOVE_FOCUS_BLAST 365
+#define MOVE_LUMINA_CRASH 366
+#define MOVE_METEOR_BEAM 367
+#define MOVE_MOONBLAST 368
+#define MOVE_TAILWIND 369
 
-#define MOVES_COUNT 366
+#define MOVES_COUNT 370
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

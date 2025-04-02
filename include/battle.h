@@ -156,6 +156,8 @@ struct SideTimer
     u8 followmeTimer;
     u8 followmeTarget;
     u8 spikesAmount;
+    u8 tailwindTimer;
+    u8 tailwindBattlerId;
 };
 
 struct WishFutureKnock
@@ -285,6 +287,8 @@ struct BattleTv_Side
     u32 explosionMoveSlot:2;
     u32 explosionMonId:3;
     u32 perishSong:1;
+    u32 tailwindMonId:3;
+    u32 tailwindMoveSlot:2;
 };
 
 struct BattleTv_Position
