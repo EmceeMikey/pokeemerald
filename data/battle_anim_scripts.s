@@ -385,6 +385,7 @@ gBattleAnims_Moves::
 	.4byte Move_LUMINA_CRASH
 	.4byte Move_METEOR_BEAM
 	.4byte Move_MOONBLAST
+	.4byte Move_TAILWIND
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10231,6 +10232,21 @@ Move_MOONBLAST:
 	restorebg
 	waitbgfadein
 	waitforvisualfinish
+	end
+
+Move_TAILWIND:
+	loadspritegfx ANIM_TAG_AIR_WAVE_2
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	call SetSkyBg
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	waitforvisualfinish
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	delay 0
+	call UnsetSkyBg
 	end
 
 Move_COUNT:

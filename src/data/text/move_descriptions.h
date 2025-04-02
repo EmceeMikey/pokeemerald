@@ -1473,6 +1473,10 @@ static const u8 sMoonblastDescription[] = _(
     "A powerful moonbeam is\n"
     "focused directly on foe.");
 
+static const u8 sTailwindDescription[] = _(
+    "The user summons a TAILWIND\n"
+    "to boost SPEED for 2 turns.");
+
 
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
@@ -1846,4 +1850,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_LUMINA_CRASH - 1] = sLuminaCrashDescription,
     [MOVE_METEOR_BEAM - 1] = sMeteorBeamDescription,
     [MOVE_MOONBLAST - 1] = sMoonblastDescription,
+    [MOVE_TAILWIND - 1] = sTailwindDescription,
 };

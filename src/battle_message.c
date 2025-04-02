@@ -497,6 +497,8 @@ static const u8 sText_ItemAllowsOnlyYMove[] = _("{B_LAST_ITEM} allows the\nuse o
 static const u8 sText_PkmnHungOnWithX[] = _("{B_DEF_NAME_WITH_PREFIX} hung on\nusing its {B_LAST_ITEM}!");
 const u8 gText_EmptyString3[] = _("");
 static const u8 sText_YouThrowABallNowRight[] = _("You throw a BALL now, right?\nI… I'll do my best!");
+static const u8 sText_PkmnUsedTailwind[] = _("{B_DEF_NAME_WITH_PREFIX} raised ally SPEED\nwith a TAILWIND!");
+static const u8 sText_PkmnTailwindExpired[] = _("{B_ATK_PREFIX3}'s TAILWIND petered out.");
 
 // early declaration of strings
 static const u8 sText_PkmnIncapableOfPower[];
@@ -885,6 +887,8 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_S
     [STRINGID_PKMNBOXLANETTESPCFULL - BATTLESTRINGS_TABLE_START] = gText_PkmnTransferredLanettesPCBoxFull,
     [STRINGID_TRAINER1WINTEXT - BATTLESTRINGS_TABLE_START] = sText_Trainer1WinText,
     [STRINGID_TRAINER2WINTEXT - BATTLESTRINGS_TABLE_START] = sText_Trainer2WinText,
+    [STRINGID_PKMNTAILWINDRAISEDSPD - BATTLESTRINGS_TABLE_START] = sText_PkmnUsedTailwind,
+    [STRINGID_PKMNTAILWINDEXPIRED - BATTLESTRINGS_TABLE_START] = sText_PkmnTailwindExpired,
 };
 
 const u16 gMissStringIds[] =
@@ -955,6 +959,7 @@ const u16 gReflectLightScreenSafeguardStringIds[] =
     [B_MSG_SET_LIGHTSCREEN_SINGLE] = STRINGID_PKMNRAISEDSPDEF,
     [B_MSG_SET_LIGHTSCREEN_DOUBLE] = STRINGID_PKMNRAISEDSPDEFALITTLE,
     [B_MSG_SET_SAFEGUARD]          = STRINGID_PKMNCOVEREDBYVEIL,
+    [B_MSG_SET_TAILWIND]           = STRINGID_PKMNTAILWINDRAISEDSPD,
 };
 
 const u16 gLeechSeedStringIds[] =

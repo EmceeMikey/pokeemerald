@@ -325,6 +325,7 @@ static void Cmd_removeattackerstatus1(void);
 static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
 static void Cmd_trainerslideout(void);
+static void Cmd_settailwind(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -577,6 +578,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
     Cmd_trainerslideout,                         //0xF8
+    Cmd_settailwind,                             //0xF9
 };
 
 struct StatFractions
@@ -10297,4 +10299,21 @@ static void Cmd_trainerslideout(void)
     MarkBattlerForControllerExec(gActiveBattler);
 
     gBattlescriptCurrInstr += 2;
+}
+
+static void Cmd_settailwind(void)
+{
+    if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_TAILWIND)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SIDE_STATUS_FAILED;
+    }
+    else
+    {
+        gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_TAILWIND;
+        gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].tailwindTimer = 3;
+        gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].tailwindBattlerId = gBattlerAttacker;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_TAILWIND;
+    }
+    gBattlescriptCurrInstr++;
 }

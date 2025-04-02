@@ -235,6 +235,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSpecialAttackUpHit     @ EFFECT_SPECIAL_ATTACK_UP_HIT
 	.4byte BattleScript_EffectSpecialDefenseDown2Hit @ EFFECT_SPECIAL_DEFENSE_DOWN_2_HIT
 	.4byte BattleScript_EffectMeteorBeam             @ EFFECT_METEOR_BEAM
+	.4byte BattleScript_EffectTailwind               @ EFFECT_TAILWIND
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -2831,6 +2832,19 @@ BattleScript_EffectSpecialAttackUpHit::
 BattleScript_EffectSpecialDefenseDown2Hit::
 	setmoveeffect MOVE_EFFECT_SP_DEF_MINUS_2
 	goto BattleScript_EffectHit
+
+BattleScript_EffectTailwind::
+	attackcanceler
+	attackstring
+	ppreduce
+	settailwind
+	goto BattleScript_PrintReflectLightScreenSafeguardString
+
+BattleScript_TailwindEnds::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNTAILWINDEXPIRED
+	waitmessage B_WAIT_TIME_LONG
+	end2
 
 BattleScript_FaintAttacker::
 	playfaintcry BS_ATTACKER
