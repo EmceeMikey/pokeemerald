@@ -2825,23 +2825,27 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_0E6] =
+    [ITEM_WIDE_LENS] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("WIDE LENS"),
+        .itemId = ITEM_WIDE_LENS,
+        .price = 10,
+        .holdEffect = HOLD_EFFECT_ACCURACY_UP,
+        .holdEffectParam = 10,
+        .description = sWideLensDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_0E7] =
+    [ITEM_EXPERT_BELT] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("EXPERT BELT"),
+        .itemId = ITEM_EXPERT_BELT,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_EXPERT_BELT,
+        .holdEffectParam = 10,
+        .description = sExpertBeltDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

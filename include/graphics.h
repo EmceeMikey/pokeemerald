@@ -3732,6 +3732,10 @@ extern const u32 gItemIcon_Stick[];
 extern const u32 gItemIconPalette_Stick[];
 extern const u32 gItemIcon_BigRoot[];
 extern const u32 gItemIconPalette_BigRoot[];
+extern const u32 gItemIcon_WideLens[];
+extern const u32 gItemIconPalette_WideLens[];
+extern const u32 gItemIcon_ExpertBelt[];
+extern const u32 gItemIconPalette_ExpertBelt[];
 // Contest hold items
 extern const u32 gItemIcon_Scarf[];
 extern const u32 gItemIconPalette_RedScarf[];

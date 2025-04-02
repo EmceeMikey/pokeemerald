@@ -553,6 +553,12 @@ const u32 gItemIconPalette_LunarWing[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_BigRoot[] = INCBIN_U32("graphics/items/icons/silk_scarf.4bpp.lz");
 const u32 gItemIconPalette_BigRoot[] = INCBIN_U32("graphics/items/icon_palettes/silk_scarf.gbapal.lz");
 
+const u32 gItemIcon_WideLens[] = INCBIN_U32("graphics/items/icons/silk_scarf.4bpp.lz");
+const u32 gItemIconPalette_WideLens[] = INCBIN_U32("graphics/items/icon_palettes/silk_scarf.gbapal.lz");
+
+const u32 gItemIcon_ExpertBelt[] = INCBIN_U32("graphics/items/icons/silk_scarf.4bpp.lz");
+const u32 gItemIconPalette_ExpertBelt[] = INCBIN_U32("graphics/items/icon_palettes/silk_scarf.gbapal.lz");
+
 const u32 gItemIcon_Scarf[] = INCBIN_U32("graphics/items/icons/scarf.4bpp.lz");
 const u32 gItemIconPalette_RedScarf[] = INCBIN_U32("graphics/items/icon_palettes/red_scarf.gbapal.lz");
 const u32 gItemIconPalette_BlueScarf[] = INCBIN_U32("graphics/items/icon_palettes/blue_scarf.gbapal.lz");

@@ -783,16 +783,16 @@ static const u16 sWeightToDamageTable[] =
 
 static const u16 sPickupItems[] =
 {
-    ITEM_POTION,
-    ITEM_ANTIDOTE,
-    ITEM_SUPER_POTION,
-    ITEM_GREAT_BALL,
-    ITEM_REPEL,
-    ITEM_ESCAPE_ROPE,
-    ITEM_X_ATTACK,
-    ITEM_FULL_HEAL,
-    ITEM_ULTRA_BALL,
-    ITEM_HYPER_POTION,
+    ITEM_DAWN_STONE,
+    ITEM_DUSK_STONE,
+    ITEM_SHINY_STONE,
+    ITEM_ICE_STONE,
+    ITEM_FAIRY_FEATHER,
+    ITEM_THROAT_SPRAY,
+    ITEM_LUNAR_WING,
+    ITEM_BIG_ROOT,
+    ITEM_WIDE_LENS,
+    ITEM_EXPERT_BELT,
     ITEM_RARE_CANDY,
     ITEM_PROTEIN,
     ITEM_REVIVE,
@@ -1155,6 +1155,10 @@ static void Cmd_accuracycheck(void)
             calc = (calc * 80) / 100; // 1.2 sand veil loss
         if (gBattleMons[gBattlerAttacker].ability == ABILITY_HUSTLE && IS_TYPE_PHYSICAL(type))
             calc = (calc * 80) / 100; // 1.2 hustle loss
+        holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerAttacker].item);
+        param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerAttacker].item);
+        if (holdEffect == HOLD_EFFECT_ACCURACY_UP)
+            calc = (calc * (100 + param)) / 100;
 
         if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
         {
@@ -1320,9 +1324,15 @@ void AI_CalcDmg(u8 attacker, u8 defender)
 
 static void ModulateDmgByType(u8 multiplier)
 {
+    u8 holdEffect, param;
+    holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerAttacker].item);
+    param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerAttacker].item);
+
     gBattleMoveDamage = gBattleMoveDamage * multiplier / 10;
     if (gBattleMoveDamage == 0 && multiplier != 0)
         gBattleMoveDamage = 1;
+    if (holdEffect == HOLD_EFFECT_EXPERT_BELT && multiplier >> 0)
+        gBattleMoveDamage = (gBattleMoveDamage * (100 + param)) / 100;
 
     switch (multiplier)
     {
@@ -1519,9 +1529,15 @@ static void CheckWonderGuardAndLevitate(void)
 // Same as ModulateDmgByType except different arguments
 static void ModulateDmgByType2(u8 multiplier, u16 move, u8 *flags)
 {
+    u8 holdEffect, param;
+    holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerAttacker].item);
+    param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerAttacker].item);
+
     gBattleMoveDamage = gBattleMoveDamage * multiplier / 10;
     if (gBattleMoveDamage == 0 && multiplier != 0)
         gBattleMoveDamage = 1;
+    if (holdEffect == HOLD_EFFECT_EXPERT_BELT && multiplier >> 0)
+        gBattleMoveDamage = (gBattleMoveDamage * (100 + param)) / 100;
 
     switch (multiplier)
     {

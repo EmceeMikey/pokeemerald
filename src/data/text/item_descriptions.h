@@ -987,6 +987,16 @@ static const u8 sBigRootDesc[] = _(
     "boosts the HP drain\n"
     "from ABSORB, etc.");
 
+static const u8 sWideLensDesc[] = _(
+    "A hold item that\n"
+    "slightly boosts the\n"
+    "accuracy of moves.");
+
+static const u8 sExpertBeltDesc[] = _(
+    "A hold item that\n"
+    "boosts SUPER-\n"
+    "EFFECTIVE moves.");
+
 static const u8 sRedScarfDesc[] = _(
     "A hold item that\n"
     "raises COOL in\n"
