@@ -4108,6 +4108,7 @@ u8 IsRunningFromBattleImpossible(void)
     for (i = 0; i < gBattlersCount; i++)
     {
         if (side != GetBattlerSide(i)
+         && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST)
          && gBattleMons[i].ability == ABILITY_SHADOW_TAG)
         {
             gBattleScripting.battler = i;
@@ -4117,7 +4118,7 @@ u8 IsRunningFromBattleImpossible(void)
         }
         if (side != GetBattlerSide(i)
          && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE
-         && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
+         && !IS_BATTLER_OF_TYPE(gActiveBattler, (TYPE_FLYING | TYPE_GHOST))
          && gBattleMons[i].ability == ABILITY_ARENA_TRAP)
         {
             gBattleScripting.battler = i;
@@ -4127,7 +4128,7 @@ u8 IsRunningFromBattleImpossible(void)
         }
     }
     i = AbilityBattleEffects(ABILITYEFFECT_CHECK_FIELD_EXCEPT_BATTLER, gActiveBattler, ABILITY_MAGNET_PULL, 0, 0);
-    if (i != 0 && IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_STEEL))
+    if (i != 0 && IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_STEEL) && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST))
     {
         gBattleScripting.battler = i - 1;
         gLastUsedAbility = gBattleMons[i - 1].ability;

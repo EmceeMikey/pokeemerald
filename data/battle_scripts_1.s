@@ -1013,6 +1013,7 @@ BattleScript_EffectParalyze::
 	attackstring
 	ppreduce
 	jumpifability BS_TARGET, ABILITY_LIMBER, BattleScript_LimberProtected
+	jumpiftype BS_TARGET, TYPE_ELECTRIC, BattleScript_NotAffected
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
 	typecalc
 	jumpifmovehadnoeffect BattleScript_ButItFailed
@@ -4199,7 +4200,7 @@ BattleScript_SoundproofProtected::
 	attackstring
 	ppreduce
 	pause B_WAIT_TIME_SHORT
-	printstring STRINGID_PKMNSXBLOCKSY
+	printstring STRINGID_PKMNWASNTAFFECTED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 

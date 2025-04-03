@@ -1438,8 +1438,8 @@ static const u8 sDazzlingGleamDescription[] = _(
     "flash of light at both foes.");
 
 static const u8 sBoomburstDescription[] = _(
-    "The user lets loose an ear-\n"
-    "splitting scream.");
+    "User launches a sub-sonic\n"
+    "wave at everyone nearby.");
 
 static const u8 sDrumBeatingDescription[] = _(
     "A powerful beat lowers SPEED\n"

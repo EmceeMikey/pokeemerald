@@ -589,12 +589,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_ATTACK_DOWN,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_AURAL,
         .accuracy = 100,
         .pp = 40,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
+        .soundMove = TRUE,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
@@ -3664,13 +3665,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_YAWN,
         .power = 0,
-        .type = TYPE_AURAL,
+        .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .soundMove = TRUE,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 

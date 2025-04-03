@@ -1384,19 +1384,19 @@ static void Cmd_typecalc(void)
         gBattleMoveDamage = gBattleMoveDamage / 10;
     }
 
-    if (moveType == TYPE_DRUM_BEATING)
+    if (moveType == TYPE_DRUM_BEATING && (gBattlerAttacker == SPECIES_VENUSAUR))
     {
         gBattleMoveDamage = gBattleMoveDamage * 15;
         gBattleMoveDamage = gBattleMoveDamage / 10;
     }
 
-    if (moveType == TYPE_TORCH_SONG)
+    if (moveType == TYPE_TORCH_SONG && (gBattlerAttacker == SPECIES_CHARIZARD))
     {
         gBattleMoveDamage = gBattleMoveDamage * 15;
         gBattleMoveDamage = gBattleMoveDamage / 10;
     }
 
-    if (moveType == TYPE_SPARKLING_ARIA)
+    if (moveType == TYPE_SPARKLING_ARIA && (gBattlerAttacker == SPECIES_BLASTOISE))
     {
         gBattleMoveDamage = gBattleMoveDamage * 15;
         gBattleMoveDamage = gBattleMoveDamage / 10;
@@ -1409,6 +1409,26 @@ static void Cmd_typecalc(void)
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
         gBattleCommunication[MISS_TYPE] = B_MSG_GROUND_MISS;
+        RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
+    }
+
+    if (gBattleMons[gBattlerTarget].types[0] == TYPE_AURAL && (gBattleMoves[gCurrentMove].soundMove))
+    {
+        gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
+        gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+        gLastLandedMoves[gBattlerTarget] = 0;
+        gLastHitByType[gBattlerTarget] = 0;
+        gBattleCommunication[MISS_TYPE] = B_MSG_AURAL_IMMUNE;
+        RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
+    }
+
+    if (gBattleMons[gBattlerTarget].types[1] == TYPE_AURAL && (gBattleMoves[gCurrentMove].soundMove))
+    {
+        gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
+        gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+        gLastLandedMoves[gBattlerTarget] = 0;
+        gLastHitByType[gBattlerTarget] = 0;
+        gBattleCommunication[MISS_TYPE] = B_MSG_AURAL_IMMUNE;
         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
     }
     else
@@ -1582,6 +1602,24 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
 
     // check stab
     if (IS_BATTLER_OF_TYPE(attacker, moveType))
+    {
+        gBattleMoveDamage = gBattleMoveDamage * 15;
+        gBattleMoveDamage = gBattleMoveDamage / 10;
+    }
+
+    if (moveType == TYPE_DRUM_BEATING && (gBattlerAttacker == SPECIES_VENUSAUR))
+    {
+        gBattleMoveDamage = gBattleMoveDamage * 15;
+        gBattleMoveDamage = gBattleMoveDamage / 10;
+    }
+
+    if (moveType == TYPE_TORCH_SONG && (gBattlerAttacker == SPECIES_CHARIZARD))
+    {
+        gBattleMoveDamage = gBattleMoveDamage * 15;
+        gBattleMoveDamage = gBattleMoveDamage / 10;
+    }
+
+    if (moveType == TYPE_SPARKLING_ARIA && (gBattlerAttacker == SPECIES_BLASTOISE))
     {
         gBattleMoveDamage = gBattleMoveDamage * 15;
         gBattleMoveDamage = gBattleMoveDamage / 10;
@@ -2455,6 +2493,22 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     break;
                 }
             }
+            if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ELECTRIC)
+                && (gHitMarker & HITMARKER_STATUS_ABILITY_EFFECT)
+                && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
+            {
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                gBattlescriptCurrInstr = BattleScript_PRLZPrevention;
+
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUS_HAD_NO_EFFECT;
+                RESET_RETURN
+            }
+            if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ELECTRIC))
+                break;
+            if (gBattleMons[gEffectBattler].ability == ABILITY_LIMBER)
+                break;
+            if (gBattleMons[gEffectBattler].status1)
+                break;
             if (gBattleMons[gEffectBattler].status1)
                 break;
 
@@ -4545,6 +4599,26 @@ static void Cmd_typecalc2(void)
         gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
         gLastLandedMoves[gBattlerTarget] = 0;
         gBattleCommunication[MISS_TYPE] = B_MSG_GROUND_MISS;
+        RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
+    }
+
+    if (gBattleMons[gBattlerTarget].types[0] == TYPE_AURAL && (gBattleMoves[gCurrentMove].soundMove))
+    {
+        gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
+        gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+        gLastLandedMoves[gBattlerTarget] = 0;
+        gLastHitByType[gBattlerTarget] = 0;
+        gBattleCommunication[MISS_TYPE] = B_MSG_AURAL_IMMUNE;
+        RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
+    }
+
+    if (gBattleMons[gBattlerTarget].types[1] == TYPE_AURAL && (gBattleMoves[gCurrentMove].soundMove))
+    {
+        gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
+        gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+        gLastLandedMoves[gBattlerTarget] = 0;
+        gLastHitByType[gBattlerTarget] = 0;
+        gBattleCommunication[MISS_TYPE] = B_MSG_AURAL_IMMUNE;
         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
     }
     else
