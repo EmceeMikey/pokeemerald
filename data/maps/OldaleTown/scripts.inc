@@ -31,6 +31,7 @@ OldaleTown_EventScript_MoveMartEmployee::
 
 OldaleTown_EventScript_TownSign::
 	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
+	special FillPokedex
 	end
 
 OldaleTown_EventScript_Girl::

@@ -84,8 +84,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 28,
-      "y": 51,
+      "x": 24,
+      "y": 47,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
@@ -136,8 +136,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 29,
-      "y": 37,
+      "x": 15,
+      "y": 52,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
@@ -162,8 +162,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 21,
-      "y": 47,
+      "x": 26,
+      "y": 49,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -383,8 +383,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 10,
-      "y": 82,
+      "x": 13,
+      "y": 77,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
       "movement_range_x": 0,
@@ -396,8 +396,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 11,
-      "y": 71,
+      "x": 9,
+      "y": 77,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_LEFT_AND_RIGHT",
       "movement_range_x": 0,
@@ -578,7 +578,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 14,
+      "x": 15,
       "y": 56,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",

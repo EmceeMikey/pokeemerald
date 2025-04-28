@@ -944,7 +944,7 @@
     {
       "id": "LAYOUT_RUSTBORO_CITY_POKEMON_SCHOOL",
       "name": "RustboroCity_PokemonSchool_Layout",
-      "width": 12,
+      "width": 33,
       "height": 11,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PokemonSchool",

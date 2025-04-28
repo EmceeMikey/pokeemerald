@@ -41,6 +41,7 @@ LittlerootTown_MapScripts::
 
 LittlerootTown_OnTransition:
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN
 	call Common_EventScript_SetupRivalGfxId
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
@@ -958,8 +959,30 @@ LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "Go on, go get them, honey!$"
 
 LittlerootTown_Text_CanUsePCToStoreItems:
-	.string "If you use a PC, you can store items\n"
-	.string "and POKéMON.\p"
+	.string "The power of science is staggering!\n"
+	.string "They proved that some POKéMON\l"
+	.string "really do come from space!  It's a\l"
+	.string "whole new type!  Amazing!  Also,\l"
+	.string "recent studies led to the formal\l"
+	.string "discovery of a second new type!\l"
+	.string "Certain POKéMON can interact with\l"
+	.string "sound waves in unpredictable ways.\l"
+	.string "Also, those POKéMON seem receptive\l"
+	.string "to other kinds of vibrations, not\l"
+	.string "just sound waves.  Also, because\l"
+	.string "of this affinity, recent studies of\l"
+	.string "a POKéMON's AURA have led to some\l"
+	.string "surprising conclusions.  For\l"
+	.string "example, a SUBSTITUTE cannot block/l"
+	.string "sound-based attacks!  Also, one of\l"
+	.string "my favorite pokemon, WHISMUR, has\l"
+	.string "been shown to be completely immune\l"
+	.string "to sound-based moves.  Also, some\l"
+	.string "POKéMON are able to influence the\l"
+	.string "AURA of humans and POKéMON around\l"
+	.string "them.  It's an incredible discovery\l"
+	.string "to witness!  Could the true power\l"
+	.string "of POKéMON be within our reach?\l"
 	.string "The power of science is staggering!$"
 
 LittlerootTown_Text_BirchSpendsDaysInLab:
