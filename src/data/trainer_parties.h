@@ -4213,11 +4213,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Calvin1[] = {
     .iv = 0,
     .lvl = 5,
     .species = SPECIES_POOCHYENA,
-    },
-    {
-    .iv = 0,
-    .lvl = 5,
-    .species = SPECIES_POOCHYENA,
     }
 };
 

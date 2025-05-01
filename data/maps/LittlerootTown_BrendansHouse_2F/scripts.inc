@@ -273,6 +273,21 @@ PlayersHouse_2F_EventScript_GameCube::
 	end
 
 PlayersHouse_2F_Text_ClockIsStopped:
+	.string "Hello?  ...Hello?  Can you hear me?\p"
+	.string "Finally!  I was trying to get this\n"
+	.string "thing working for ages.  Oh!  Uh,\l"
+	.string "my name is MICHAEL.  I need your\l"
+	.string "help.  None of what you're seeing\l"
+	.string "right now is real, so don't panic.\p"
+	.string "I need you to use this simulation\n"
+	.string "to prepare yourself.  For what's\l"
+	.string "coming...\p"
+	.string "Listen.  If you need any help out\n"
+	.string "there, find my sister JOVI.  She's\l"
+	.string "an expert at this kind of thing.\p"
+	.string "Well, I'll be seeing you later!\n"
+	.string "Your journey begins... NOW!!!\p"
+	.string "... ... ...\p"
 	.string "The clock is stopped…\p"
 	.string "Better set it and start it!$"
 

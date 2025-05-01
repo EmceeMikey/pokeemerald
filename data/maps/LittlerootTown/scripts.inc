@@ -966,8 +966,8 @@ LittlerootTown_Text_CanUsePCToStoreItems:
 	.string "recent studies led to the formal\l"
 	.string "discovery of a second new type!\l"
 	.string "Certain POKéMON can interact with\l"
-	.string "sound waves in unpredictable ways.\l"
-	.string "Also, those POKéMON seem receptive\l"
+	.string "sound waves in unpredictable ways.\p"
+	.string "Also, those POKéMON seem receptive\n"
 	.string "to other kinds of vibrations, not\l"
 	.string "just sound waves.  Also, because\l"
 	.string "of this affinity, recent studies of\l"
@@ -982,7 +982,7 @@ LittlerootTown_Text_CanUsePCToStoreItems:
 	.string "AURA of humans and POKéMON around\l"
 	.string "them.  It's an incredible discovery\l"
 	.string "to witness!  Could the true power\l"
-	.string "of POKéMON be within our reach?\l"
+	.string "of POKéMON be within our reach?\p"
 	.string "The power of science is staggering!$"
 
 LittlerootTown_Text_BirchSpendsDaysInLab:
