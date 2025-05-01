@@ -973,7 +973,7 @@ LittlerootTown_Text_CanUsePCToStoreItems:
 	.string "of this affinity, recent studies of\l"
 	.string "a POKéMON's AURA have led to some\l"
 	.string "surprising conclusions.  For\l"
-	.string "example, a SUBSTITUTE cannot block/l"
+	.string "example, a SUBSTITUTE cannot block\l"
 	.string "sound-based attacks!  Also, one of\l"
 	.string "my favorite pokemon, WHISMUR, has\l"
 	.string "been shown to be completely immune\l"
