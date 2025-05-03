@@ -11,6 +11,6 @@ OldaleTown_House1_Text_LeftPokemonGoesOutFirst:
 	.string "Nice to meetcha.  Try to pay attention,\n"
 	.string "m'kay?  MICHAEL wanted me to give you\l"
 	.string "something, but that's boring, so we'll\l"
-	.string "play a game.  I want to see data on\l"
-	.string "five caught POKéMON!  Can you do that?$"
+	.string "play a game.  I want to see POKéDEX\l"
+	.string "data on 5 POKéMON!  Can you do that?$"
 

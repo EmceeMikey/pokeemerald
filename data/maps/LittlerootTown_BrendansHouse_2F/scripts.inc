@@ -282,7 +282,11 @@ PlayersHouse_2F_Text_ClockIsStopped:
 	.string "I need you to use this simulation\n"
 	.string "to prepare yourself.  For what's\l"
 	.string "coming...\p"
-	.string "Listen.  If you need any help out\n"
+	.string "Oh!  I dropped a POKéMON into the\n"
+	.string "PC for you.  It's one of my\l"
+	.string "favorites.  Take good care of it.\p"
+	.string "And before you go, just one last\n"
+	.string "thing- if you need any help out\l"
 	.string "there, find my sister JOVI.  She's\l"
 	.string "an expert at this kind of thing.\p"
 	.string "Well, I'll be seeing you later!\n"
@@ -292,7 +296,7 @@ PlayersHouse_2F_Text_ClockIsStopped:
 	.string "Better set it and start it!$"
 
 PlayersHouse_2F_Text_HowDoYouLikeYourRoom:
-	.string "MOM: {PLAYER}, how do you like your\n"
+	.string "MOM: So, how do you like your\n"
 	.string "new room?\p"
 	.string "Good! Everything's put away neatly!\p"
 	.string "They finished moving everything in\n"
@@ -302,15 +306,15 @@ PlayersHouse_2F_Text_HowDoYouLikeYourRoom:
 	.string "everything's all there on your desk.$"
 
 PlayersHouse_2F_Text_Notebook:
-	.string "{PLAYER} flipped open the notebook.\p"
-	.string "ADVENTURE RULE NO. 1\n"
-	.string "Open the MENU with START.\p"
-	.string "ADVENTURE RULE NO. 2\n"
-	.string "Record your progress with SAVE.\p"
-	.string "The remaining pages are blank…$"
+	.string "You flipped open the notebook.\p"
+	.string "“Welcome to EMERALD 20!\n"
+	.string "I hope you enjoy this hack.”\p"
+	.string "“If you took the time to read this note,\n"
+	.string "you're off to a great start.”\p"
+	.string "“Thanks for playing!”\n -Michael$"
 
 Common_Text_LookCloserAtMap:
-	.string "{PLAYER} took a closer look at the\n"
+	.string "You took a closer look at the\n"
 	.string "HOENN region map.$"
 
 PlayersHouse_2F_Text_ItsAGameCube:

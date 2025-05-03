@@ -60,6 +60,7 @@ LittlerootTown_MaysHouse_2F_EventScript_WallClock::
 PlayersHouse_2F_EventScript_WallClock::
 	goto_if_set FLAG_SET_WALL_CLOCK, PlayersHouse_2F_EventScript_CheckWallClock
 	msgbox PlayersHouse_2F_Text_ClockIsStopped, MSGBOX_DEFAULT
+	givemon SPECIES_EEVEE, 5
 	call PlayersHouse_2F_EventScript_SetWallClock
 	delay 30
 	setvar VAR_LITTLEROOT_INTRO_STATE, 6

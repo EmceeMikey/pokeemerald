@@ -354,8 +354,8 @@ RivalsHouse_2F_Text_BrendanWhoAreYou:
 	.string "a POKéMON?\p"
 	.string "Do you want me to go catch you one?\p"
 	.string "Aw, darn, I forgot…\p"
-	.string "I'm supposed to go help my dad catch\n"
-	.string "some wild POKéMON.\p"
+	.string "I'm supposed to go do fieldwork out\n"
+	.string "on ROUTE 103.\p"
 	.string "Some other time, okay?$"
 
 RivalsHouse_2F_Text_BrendanGettingReady:
@@ -386,8 +386,8 @@ RivalsHouse_2F_Text_BrendanJustCheckingMyPokedex:
 	.string "BRENDAN: Hey, it's {PLAYER}.\p"
 	.string "I was just checking out my POKéDEX.\p"
 	.string "There are still many POKéMON that\n"
-	.string "I need to catch, I know, but this\l"
-	.string "is looking pretty good.\p"
+	.string "I need to catch, sure, but this\l"
+	.string "is still looking pretty good.\p"
 	.string "Checking this POKéDEX out gives me\n"
 	.string "the urge to hit the road again.$"
 
@@ -395,5 +395,5 @@ RivalsHouse_2F_Text_BrendanWhereShouldIGoNext:
 	.string "BRENDAN: I'm having a hard time deciding\n"
 	.string "where I should catch POKéMON next.\p"
 	.string "Hey, {PLAYER}, if I see you while I'm out\n"
-	.string "catching POKéMON, I can pitch you a\l"
-	.string "battle if you'd like.$"
+	.string "catching POKéMON, we should\l"
+	.string "totally battle, okay?$"
