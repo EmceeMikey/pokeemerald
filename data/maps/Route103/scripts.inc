@@ -316,8 +316,8 @@ Route103_Text_MayTimeToHeadBack:
 	.string "the LAB.$"
 
 Route103_Text_BrendanRoute103Pokemon:
-	.string "BRENDAN: Okay, so it's this one and\n"
-	.string "that one that live on ROUTE 103…$"
+	.string "BRENDAN: Okay, so it's MAGBY, CLEFFA,\n"
+	.string "and ELEKID that live on ROUTE 103…$"
 
 Route103_Text_BrendanLetsBattle:
 	.string "Hey, it's {PLAYER}!\p"
@@ -341,13 +341,13 @@ Route103_Text_BrendanTimeToHeadBack:
 	.string "We should head back to the LAB.$"
 
 Route103_Text_ShouldHaveBroughtPotion:
-	.string "My POKéMON is staggeringly tired…\n"
-	.string "I should have brought a POTION…$"
+	.string "It looks like they've got this\n"
+	.string "land-bridge under production.$"
 
 Route103_Text_ShortcutToOldale:
-	.string "If you cross the sea from here,\n"
-	.string "it'll be a shortcut to OLDALE TOWN.\p"
-	.string "Fufufu, that's useful, isn't it?$"
+	.string "I've been standing here for 20 years\n"
+	.string "now, waiting for them to finish this\l"
+	.string "land-bridge.  Soon, surely…?$"
 
 Route103_Text_RouteSign:
 	.string "ROUTE 103\n"

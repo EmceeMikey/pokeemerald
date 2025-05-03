@@ -293,8 +293,8 @@ Route101_Text_TakeTiredPokemonToPokeCenter:
 Route101_Text_WildPokemonInTallGrass:
 	.string "Wild POKéMON will jump out at you in\n"
 	.string "tall grass.\p"
-	.string "If you want to catch POKéMON, you have\n"
-	.string "to go into the tall grass and search.$"
+	.string "I'm searching for an ELEKTRIKE right\n"
+	.string "now.  I love the new ecosystem!$"
 
 Route101_Text_RouteSign:
 	.string "ROUTE 101\n"

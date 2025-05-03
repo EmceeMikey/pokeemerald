@@ -97,8 +97,8 @@ Route102_Text_ImNotVeryTall:
 	.string "Fwatchoo!$"
 
 Route102_Text_CatchWholeBunchOfPokemon:
-	.string "I'm going to catch a whole bunch of\n"
-	.string "POKéMON!$"
+	.string "I can't wait to catch a WHISMUR and\n"
+	.string "see how it does in battle!$"
 
 Route102_Text_RouteSignOldale:
 	.string "ROUTE 102\n"
