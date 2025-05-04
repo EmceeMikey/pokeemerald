@@ -12429,3 +12429,20 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
     .species = SPECIES_KYOGRE,
     }
 };
+
+static const struct TrainerMonItemCustomMoves sParty_Aubrey[] = {
+    {
+    .iv = 250,
+    .lvl = 8,
+    .species = SPECIES_CLEFAIRY,
+    .heldItem = ITEM_LUNAR_WING,
+    .moves = {MOVE_REFLECT, MOVE_SWIFT, MOVE_LIGHT_SCREEN, MOVE_DRAINING_KISS}
+    },
+    {
+    .iv = 250,
+    .lvl = 8,
+    .species = SPECIES_WHISMUR,
+    .heldItem = ITEM_THROAT_SPRAY,
+    .moves = {MOVE_REST, MOVE_SNORE, MOVE_HYPER_VOICE, MOVE_PROTECT}
+    },
+};

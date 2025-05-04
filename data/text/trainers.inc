@@ -46,6 +46,22 @@ Route102_Text_AllenPostBattle:
 	.string "I haven't won once yet…\n"
 	.string "I wish I would win soon…$"
 
+Route102_Text_AubreyIntro:
+	.string "Alright, let's go!$"
+
+Route102_Text_AubreyDefeated:
+	.string "Whew, what a battle!  As promised,\n"
+	.string "Take this THROAT SPRAY.$"
+
+Route102_Text_AubreyNotEnoughMons:
+	.string "Oh, this is awkward…  LEAGUE rules\n"
+	.string "actually enforce double battles\l"
+	.string "for ACE TRAINERS.  You need to\l"
+	.string "find more POKéMON!$"
+
+Route102_Text_AubreyPostBattle:
+	.string "It was a battle well-fought.$"
+
 Route102_Text_RickIntro:
 	.string "Hahah! Our eyes met!\n"
 	.string "I'll take you on with my BUG POKéMON!$"

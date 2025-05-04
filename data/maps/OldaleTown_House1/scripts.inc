@@ -2,7 +2,28 @@ OldaleTown_House1_MapScripts::
 	.byte 0
 
 OldaleTown_House1_EventScript_Woman::
+	lock
+	faceplayer
+	goto_if_set FLAG_TEMP_1, OldaleTown_House1_EventScript_GiveWideLens
 	msgbox OldaleTown_House1_Text_LeftPokemonGoesOutFirst, MSGBOX_NPC
+	setflag FLAG_TEMP_1
+	release
+	end
+
+OldaleTown_House1_EventScript_GiveWideLens:
+	lock
+	faceplayer
+	setvar VAR_0x8004, 0
+	specialvar VAR_RESULT, ScriptGetPokedexInfo
+	goto_if_lt VAR_0x8006, 5, OldaleTown_House1_EventScript_NotEnoughMons
+	msgbox OldaleTown_House1_Text_CheckForFiveMons, MSGBOX_DEFAULT
+	giveitem ITEM_WIDE_LENS
+	setflag FLAG_TEMP_1
+	release
+	end
+
+OldaleTown_House1_EventScript_NotEnoughMons:
+	msgbox OldaleTown_House1_Text_NotEnoughMons, MSGBOX_NPC
 	end
 
 OldaleTown_House1_Text_LeftPokemonGoesOutFirst:
@@ -14,3 +35,11 @@ OldaleTown_House1_Text_LeftPokemonGoesOutFirst:
 	.string "play a game.  I want to see POKéDEX\l"
 	.string "data on 5 POKéMON!  Can you do that?$"
 
+OldaleTown_House1_Text_CheckForFiveMons:
+	.string "So, how's that POKéDEX coming?  Can\n"
+	.string "I see?  One, two, three-four-five!\l"
+	.string "Wowee, nice job!  Here, take this!$"
+
+OldaleTown_House1_Text_NotEnoughMons:
+	.string "I want to see POKéDEX data on 5\n"
+	.string "POKéMON!  Can you do that?$"

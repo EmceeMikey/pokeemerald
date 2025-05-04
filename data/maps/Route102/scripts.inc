@@ -73,6 +73,21 @@ Route102_EventScript_Allen::
 	msgbox Route102_Text_AllenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route102_EventScript_Ace::
+	lock
+	faceplayer
+	msgbox Route102_Text_AceBattleRequest, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route102_EventScript_Aubrey
+	msgbox Route102_Text_AceBattleDeclined, MSGBOX_NPC
+	release
+	end
+
+Route102_EventScript_Aubrey::
+	trainerbattle_double TRAINER_AUBREY, Route102_Text_AubreyIntro, Route102_Text_AubreyDefeated, Route102_Text_AubreyNotEnoughMons
+	giveitem ITEM_THROAT_SPRAY
+	msgbox Route102_Text_AubreyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
 Route102_Text_WatchMeCatchPokemon:
 	.string "WALLY: {PLAYER}…\n"
 	.string "POKéMON hide in tall grass like this,\l"
@@ -107,3 +122,13 @@ Route102_Text_RouteSignOldale:
 Route102_Text_RouteSignPetalburg:
 	.string "ROUTE 102\n"
 	.string "{LEFT_ARROW} PETALBURG CITY$"
+
+Route102_Text_AceBattleRequest:
+	.string "I'm this route's ACE TRAINER!\n"
+	.string "If you can defeat me in a battle,\l"
+	.string "I'm supposed to give you a good\l"
+	.string "item.  So how about it?$"
+
+Route102_Text_AceBattleDeclined:
+	.string "Train up a bit, then come and\n"
+	.string "talk to me again.$"
