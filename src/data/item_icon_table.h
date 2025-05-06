@@ -102,7 +102,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_059] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_05A] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_05B] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_05C] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_MAGATAMA_STONE] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     // Evolution stones
     [ITEM_SUN_STONE] = {gItemIcon_SunStone, gItemIconPalette_SunStone},
     [ITEM_MOON_STONE] = {gItemIcon_MoonStone, gItemIconPalette_MoonStone},

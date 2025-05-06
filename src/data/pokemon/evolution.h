@@ -81,7 +81,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
                             {EVO_ITEM, ITEM_ICE_STONE, SPECIES_GLACEON},
                             {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_LEAFEON},
                             {EVO_ITEM, ITEM_SHINY_STONE, SPECIES_SYLVEON},
-                            {EVO_ITEM, ITEM_THROAT_SPRAY, SPECIES_AUREON},
+                            {EVO_ITEM, ITEM_MAGATAMA_STONE, SPECIES_AUREON},
                             {EVO_ITEM, ITEM_SUN_STONE, SPECIES_EMPYREON},
                             {EVO_ITEM, ITEM_MOON_STONE, SPECIES_EMPYREON_MN}},
     [SPECIES_PORYGON]    = {{EVO_TRADE_ITEM, ITEM_UP_GRADE, SPECIES_PORYGON2}},

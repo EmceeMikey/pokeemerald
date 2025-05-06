@@ -103,7 +103,7 @@
 #define ITEM_059 89
 #define ITEM_05A 90
 #define ITEM_05B 91
-#define ITEM_05C 92
+#define ITEM_MAGATAMA_STONE 92
 #define ITEM_SUN_STONE 93
 #define ITEM_MOON_STONE 94
 #define ITEM_FIRE_STONE 95
