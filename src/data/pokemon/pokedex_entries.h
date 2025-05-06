@@ -4679,4 +4679,40 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 290,
         .trainerOffset = 2,
     },
+
+    [NATIONAL_DEX_AUREON] =
+    {
+        .categoryName = _("ECHO"),
+        .height = 10,
+        .weight = 235,
+        .description = gAureonPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 290,
+        .trainerOffset = 2,
+    },
+
+    [NATIONAL_DEX_EMPYREON] =
+    {
+        .categoryName = _("HEAVENLY"),
+        .height = 10,
+        .weight = 235,
+        .description = gEmpyreonPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 290,
+        .trainerOffset = 2,
+    },
+
+    [NATIONAL_DEX_EMPYREON_MN] =
+    {
+        .categoryName = _("HEAVENLY"),
+        .height = 10,
+        .weight = 235,
+        .description = gEmpyreonMnPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 290,
+        .trainerOffset = 2,
+    },
 };

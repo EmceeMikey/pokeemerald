@@ -2337,3 +2337,21 @@ const u8 gSylveonPokedexText[] = _(
     "around the arm of its beloved\n"
     "TRAINER and walks with\n"
     "him or her.");
+
+const u8 gAureonPokedexText[] = _(
+    "It can't contain its excitement.\n"
+    "Its tail wags perpetually at the\n"
+    "same tempo, making it popular\n"
+    "with musical TRAINERS.");
+
+const u8 gEmpyreonPokedexText[] = _(
+    "Some say it is a harbinger of\n"
+    "things to come.  Whether those\n"
+    "things are good or bad depends\n"
+    "upon which form is seen.");
+
+const u8 gEmpyreonMnPokedexText[] = _(
+    "Some say it is a harbinger of\n"
+    "things to come.  Whether those\n"
+    "things are good or bad depends\n"
+    "upon which form is seen.");

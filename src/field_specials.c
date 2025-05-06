@@ -4274,7 +4274,7 @@ void FillPokedex(void)
 {
     u16 i;
 
-    for (i = SPECIES_BULBASAUR; i <= SPECIES_SYLVEON; i++)
+    for (i = SPECIES_BULBASAUR; i <= SPECIES_EMPYREON_MN; i++)
     {
         GetSetPokedexFlag(i, FLAG_SET_SEEN);
         GetSetPokedexFlag(i, FLAG_SET_CAUGHT);

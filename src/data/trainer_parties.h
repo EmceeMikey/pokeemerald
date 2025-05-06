@@ -12432,7 +12432,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
 
 static const struct TrainerMonItemCustomMoves sParty_Aubrey[] = {
     {
-    .iv = 250,
+    .iv = 100,
     .lvl = 8,
     .species = SPECIES_CLEFAIRY,
     .heldItem = ITEM_LUNAR_WING,

@@ -2733,6 +2733,27 @@ const u32 gMonShinyPalette_Sylveon[] = INCBIN_U32("graphics/pokemon/sylveon/shin
 const u8 gMonIcon_Sylveon[] = INCBIN_U8("graphics/pokemon/sylveon/icon.4bpp");
 const u8 gMonFootprint_Sylveon[] = INCBIN_U8("graphics/pokemon/sylveon/footprint.1bpp");
 
+const u32 gMonStillFrontPic_Aureon[] = INCBIN_U32("graphics/pokemon/aureon/front.4bpp.lz");
+const u32 gMonPalette_Aureon[] = INCBIN_U32("graphics/pokemon/aureon/normal.gbapal.lz");
+const u32 gMonBackPic_Aureon[] = INCBIN_U32("graphics/pokemon/aureon/back.4bpp.lz");
+const u32 gMonShinyPalette_Aureon[] = INCBIN_U32("graphics/pokemon/aureon/shiny.gbapal.lz");
+const u8 gMonIcon_Aureon[] = INCBIN_U8("graphics/pokemon/aureon/icon.4bpp");
+const u8 gMonFootprint_Aureon[] = INCBIN_U8("graphics/pokemon/aureon/footprint.1bpp");
+
+const u32 gMonStillFrontPic_Empyreon[] = INCBIN_U32("graphics/pokemon/empyreon/front.4bpp.lz");
+const u32 gMonPalette_Empyreon[] = INCBIN_U32("graphics/pokemon/empyreon/normal.gbapal.lz");
+const u32 gMonBackPic_Empyreon[] = INCBIN_U32("graphics/pokemon/empyreon/back.4bpp.lz");
+const u32 gMonShinyPalette_Empyreon[] = INCBIN_U32("graphics/pokemon/empyreon/shiny.gbapal.lz");
+const u8 gMonIcon_Empyreon[] = INCBIN_U8("graphics/pokemon/empyreon/icon.4bpp");
+const u8 gMonFootprint_Empyreon[] = INCBIN_U8("graphics/pokemon/empyreon/footprint.1bpp");
+
+const u32 gMonStillFrontPic_EmpyreonMn[] = INCBIN_U32("graphics/pokemon/empyreonmn/front.4bpp.lz");
+const u32 gMonPalette_EmpyreonMn[] = INCBIN_U32("graphics/pokemon/empyreonmn/normal.gbapal.lz");
+const u32 gMonBackPic_EmpyreonMn[] = INCBIN_U32("graphics/pokemon/empyreonmn/back.4bpp.lz");
+const u32 gMonShinyPalette_EmpyreonMn[] = INCBIN_U32("graphics/pokemon/empyreonmn/shiny.gbapal.lz");
+const u8 gMonIcon_EmpyreonMn[] = INCBIN_U8("graphics/pokemon/empyreonmn/icon.4bpp");
+const u8 gMonFootprint_EmpyreonMn[] = INCBIN_U8("graphics/pokemon/empyreonmn/footprint.1bpp");
+
 const u32 gMonStillFrontPic_Egg[] = INCBIN_U32("graphics/pokemon/egg/front.4bpp.lz");
 const u32 gMonPalette_Egg[] = INCBIN_U32("graphics/pokemon/egg/normal.gbapal.lz");
 

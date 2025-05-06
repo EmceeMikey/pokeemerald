@@ -1951,6 +1951,18 @@ Cry_Sylveon::
 	.incbin "sound/direct_sound_samples/cries/sylveon.bin"
 
 	.align 2
+Cry_Aureon::
+	.incbin "sound/direct_sound_samples/cries/sylveon.bin"
+
+	.align 2
+Cry_Empyreon::
+	.incbin "sound/direct_sound_samples/cries/espeon.bin"
+
+	.align 2
+Cry_EmpyreonMn::
+	.incbin "sound/direct_sound_samples/cries/umbreon.bin"
+
+	.align 2
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
 
