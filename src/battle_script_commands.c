@@ -1095,6 +1095,13 @@ static bool8 AccuracyCalcHelper(u16 move)
         return TRUE;
     }
 
+    if ((WEATHER_HAS_EFFECT && (gBattleWeather & B_WEATHER_HAIL) && gBattleMoves[move].effect == EFFECT_BLIZZARD)
+        || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW))
+    {
+        JumpIfMoveFailed(7, move);
+        return TRUE;
+    }
+
     return FALSE;
 }
 
