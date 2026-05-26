@@ -66,6 +66,7 @@
 #include "constants/metatile_labels.h"
 #include "palette.h"
 #include "pokedex.h"
+#include "naming_screen.h"
 
 #define TAG_ITEM_ICON 5500
 
@@ -918,6 +919,8 @@ void GetRivalSonDaughterString(void)
         StringCopy(gStringVar1, gText_Daughter);
     else
         StringCopy(gStringVar1, gText_Son);
+
+    DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
 u8 GetBattleOutcome(void)

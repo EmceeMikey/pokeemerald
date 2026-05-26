@@ -76,6 +76,7 @@ Route102_EventScript_Allen::
 Route102_EventScript_Ace::
 	lock
 	faceplayer
+	goto_if_set FLAG_DEFEATED_ACE_AUBREY, Route102_EventScript_Aubrey_Defeated
 	msgbox Route102_Text_AceBattleRequest, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, Route102_EventScript_Aubrey
 	msgbox Route102_Text_AceBattleDeclined, MSGBOX_NPC
@@ -83,10 +84,24 @@ Route102_EventScript_Ace::
 	end
 
 Route102_EventScript_Aubrey::
-	trainerbattle_double TRAINER_AUBREY, Route102_Text_AubreyIntro, Route102_Text_AubreyDefeated, Route102_Text_AubreyNotEnoughMons
-	giveitem ITEM_THROAT_SPRAY
+	trainerbattle_double TRAINER_AUBREY, Route102_Text_AubreyIntro, Route102_Text_AubreyDefeated, Route102_Text_AubreyNotEnoughMons, Route102_EventScript_ReceiveThroatSpray
 	msgbox Route102_Text_AubreyPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+Route102_EventScript_ReceiveThroatSpray::
+	giveitem ITEM_THROAT_SPRAY
+	setflag FLAG_DEFEATED_ACE_AUBREY
+	release
+	end
+
+Route102_EventScript_Aubrey_Defeated::
+	lock
+	faceplayer
+	msgbox Route102_Text_AubreyPostBattle
+	release
+	end
+
+	
 
 Route102_Text_WatchMeCatchPokemon:
 	.string "WALLY: {PLAYER}…\n"

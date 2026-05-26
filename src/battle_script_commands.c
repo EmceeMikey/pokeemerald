@@ -1163,8 +1163,7 @@ static void Cmd_accuracycheck(void)
             calc = (calc * 80) / 100; // 1.2 sand veil loss
         if (gBattleMons[gBattlerAttacker].ability == ABILITY_HUSTLE && IS_TYPE_PHYSICAL(type))
             calc = (calc * 80) / 100; // 1.2 hustle loss
-        holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerAttacker].item);
-        param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerAttacker].item);
+
         if (holdEffect == HOLD_EFFECT_ACCURACY_UP)
             calc = (calc * (100 + param)) / 100;
 
@@ -1333,8 +1332,6 @@ void AI_CalcDmg(u8 attacker, u8 defender)
 static void ModulateDmgByType(u8 multiplier)
 {
     u8 holdEffect, param;
-    holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerAttacker].item);
-    param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerAttacker].item);
 
     gBattleMoveDamage = gBattleMoveDamage * multiplier / 10;
     if (gBattleMoveDamage == 0 && multiplier != 0)
@@ -1558,8 +1555,6 @@ static void CheckWonderGuardAndLevitate(void)
 static void ModulateDmgByType2(u8 multiplier, u16 move, u8 *flags)
 {
     u8 holdEffect, param;
-    holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerAttacker].item);
-    param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerAttacker].item);
 
     gBattleMoveDamage = gBattleMoveDamage * multiplier / 10;
     if (gBattleMoveDamage == 0 && multiplier != 0)
@@ -7043,8 +7038,7 @@ static void Cmd_stockpiletohpheal(void)
 
 static void Cmd_negativedamage(void)
 {
-    u8 holdEffect;
-    holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerAttacker].item);
+    u8 holdEffect, param;
 
     gBattleMoveDamage = -(gHpDealt / 2);
     if (gBattleMoveDamage == 0)

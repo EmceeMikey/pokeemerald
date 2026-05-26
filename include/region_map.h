@@ -30,9 +30,9 @@ struct RegionMap {
     /*0x002*/ u8 mapSecType;
     /*0x003*/ u8 posWithinMapSec;
     /*0x004*/ u8 mapSecName[20];
-    /*0x018*/ u8 (*inputCallback)(void);
-    /*0x01c*/ struct Sprite *cursorSprite;
-    /*0x020*/ struct Sprite *playerIconSprite;
+    /*0x018*/ u8(*inputCallback)(void);
+    /*0x01c*/ struct Sprite* cursorSprite;
+    /*0x020*/ struct Sprite* playerIconSprite;
     /*0x024*/ s32 bg2x;
     /*0x028*/ s32 bg2y;
     /*0x02c*/ u32 bg2pa;
@@ -86,16 +86,16 @@ struct RegionMapLocation
     u8 y;
     u8 width;
     u8 height;
-    const u8 *name;
+    const u8* name;
 };
 
 // Exported RAM declarations
 
 // Exported ROM declarations
-void InitRegionMapData(struct RegionMap *regionMap, const struct BgTemplate *template, bool8 zoomed);
+void InitRegionMapData(struct RegionMap* regionMap, const struct BgTemplate* template, bool8 zoomed);
 bool8 LoadRegionMapGfx(void);
 void UpdateRegionMapVideoRegs(void);
-void InitRegionMap(struct RegionMap *regionMap, bool8 zoomed);
+void InitRegionMap(struct RegionMap* regionMap, bool8 zoomed);
 u8 DoRegionMapInputCallback(void);
 bool8 UpdateRegionMapZoom(void);
 void FreeRegionMapIconResources(void);
@@ -103,11 +103,11 @@ mapsec_u16_t GetRegionMapSecIdAt(u16 x, u16 y);
 void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag);
 void CreateRegionMapCursor(u16 tileTag, u16 paletteTag);
 bool32 IsEventIslandMapSecId(mapsec_u8_t mapSecId);
-u8 *GetMapName(u8 *dest, mapsec_u16_t regionMapId, u16 padLength);
-u8 *GetMapNameGeneric(u8 *dest, mapsec_u16_t mapSecId);
-u8 *GetMapNameHandleAquaHideout(u8 *dest, mapsec_u16_t mapSecId);
+u8* GetMapName(u8* dest, mapsec_u16_t regionMapId, u16 padLength);
+u8* GetMapNameGeneric(u8* dest, mapsec_u16_t mapSecId);
+u8* GetMapNameHandleAquaHideout(u8* dest, mapsec_u16_t mapSecId);
 mapsec_u16_t CorrectSpecialMapSecId(mapsec_u16_t mapSecId);
-void ShowRegionMapForPokedexAreaScreen(struct RegionMap *regionMap);
+void ShowRegionMapForPokedexAreaScreen(struct RegionMap* regionMap);
 void PokedexAreaScreen_UpdateRegionMapVariablesAndVideoRegs(s16 x, s16 y);
 void CB2_OpenFlyMap(void);
 bool8 IsRegionMapZoomed(void);

@@ -51,16 +51,17 @@ Route102_Text_AubreyIntro:
 
 Route102_Text_AubreyDefeated:
 	.string "Whew, what a battle!  As promised,\n"
-	.string "Take this THROAT SPRAY.$"
+	.string "take this THROAT SPRAY.$"
 
 Route102_Text_AubreyNotEnoughMons:
-	.string "Oh, this is awkward…  LEAGUE rules\n"
-	.string "actually enforce double battles\l"
-	.string "for ACE TRAINERS.  You need to\l"
-	.string "find more POKéMON!$"
+	.string "Oh, this is awkward…  LEAGUE rules kinda\n"
+	.string "enforce double battles for ACE TRAINERS.\p"
+	.string "You need to find more POKéMON!$"
 
 Route102_Text_AubreyPostBattle:
-	.string "It was a battle well-fought.$"
+	.string "When held by a POKéMON, that\n"
+	.string "THROAT SPRAY boosts the power of\l"
+	.string "AURAL-type moves by just a tad.$"
 
 Route102_Text_RickIntro:
 	.string "Hahah! Our eyes met!\n"

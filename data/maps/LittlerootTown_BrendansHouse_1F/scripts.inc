@@ -94,7 +94,12 @@ LittlerootTown_BrendansHouse_1F_EventScript_YoureNewNeighbor::
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	applymovement LOCALID_RIVALS_HOUSE_1F_MOM, LittlerootTown_BrendansHouse_1F_Movement_RivalMomApproach
 	waitmovement 0
+	msgbox RivalsHouse_1F_Text_YourNewName
+	goto LittlerootTown_BrendansHouse_1F_EventScript_YourNewName
+
+LittlerootTown_BrendansHouse_1F_EventScript_YourNewName::
 	special GetRivalSonDaughterString
+	lockall
 	msgbox RivalsHouse_1F_Text_OhYoureTheNewNeighbor, MSGBOX_DEFAULT
 	setflag FLAG_MET_RIVAL_MOM
 	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 2
@@ -434,3 +439,9 @@ PlayersHouse_1F_Text_WhatColorDidTheySay:
 PlayersHouse_1F_Text_StillUnknownPokemon:
 	.string "MOM: Well, isn't that something!\n"
 	.string "There are still unknown POKéMON.$"
+
+	
+
+RivalsHouse_1F_Text_YourNewName:
+	.string "Oh, hello. And you are?\p"
+	.string "… … … … … … … … …$"
