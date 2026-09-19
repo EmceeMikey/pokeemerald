@@ -171,7 +171,6 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectStomp                  @ EFFECT_FLINCH_MINIMIZE_HIT
 	.4byte BattleScript_EffectSolarBeam              @ EFFECT_SOLAR_BEAM
 	.4byte BattleScript_EffectThunder                @ EFFECT_THUNDER
-	.4byte BattleScript_EffectBlizzard               @ EFFECT_BLIZZARD
 	.4byte BattleScript_EffectTeleport               @ EFFECT_TELEPORT
 	.4byte BattleScript_EffectBeatUp                 @ EFFECT_BEAT_UP
 	.4byte BattleScript_EffectSemiInvulnerable       @ EFFECT_SEMI_INVULNERABLE
@@ -237,6 +236,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSpecialDefenseDown2Hit @ EFFECT_SPECIAL_DEFENSE_DOWN_2_HIT
 	.4byte BattleScript_EffectMeteorBeam             @ EFFECT_METEOR_BEAM
 	.4byte BattleScript_EffectTailwind               @ EFFECT_TAILWIND
+	.4byte BattleScript_EffectBlizzard               @ EFFECT_BLIZZARD
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
