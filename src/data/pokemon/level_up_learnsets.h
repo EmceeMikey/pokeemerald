@@ -91,7 +91,7 @@ static const u16 sCharmanderLevelUpLearnset[] = {
 };
 
 static const u16 sCharmeleonLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_SCRATCH,
+    LEVEL_UP_MOVE( 1, MOVE_SCRATCH),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
     LEVEL_UP_MOVE( 7, MOVE_EMBER),
     LEVEL_UP_MOVE( 8, MOVE_UPROAR),
