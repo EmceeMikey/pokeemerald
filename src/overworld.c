@@ -66,6 +66,8 @@
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "constants/time_of_day.h"
+#include "rtc.h"
 
 struct CableClubPlayer
 {
@@ -131,7 +133,7 @@ static void UpdateAllLinkPlayers(u16 *, s32);
 static u8 FlipVerticalAndClearForced(u8, u8);
 static u8 LinkPlayerGetCollision(u8, u8, s16, s16);
 static void CreateLinkPlayerSprite(u8, u8);
-static void GetLinkPlayerCoords(u8, u16 *, u16 *);
+static void GetLinkPlayerCoords(u8, s16 *, s16 *);
 static u8 GetLinkPlayerFacingDirection(u8);
 static u8 GetLinkPlayerElevation(u8);
 static u8 GetLinkPlayerIdAt(s16, s16);
@@ -188,6 +190,10 @@ COMMON_DATA void (*gFieldCallback)(void) = NULL;
 COMMON_DATA bool8 (*gFieldCallback2)(void) = NULL;
 COMMON_DATA u8 gLocalLinkPlayerId = 0; // This is our player id in a multiplayer mode.
 COMMON_DATA u8 gFieldLinkPlayerCount = 0;
+
+u8 gTimeOfDay;
+struct TimeBlendSettings currentTimeBlend;
+u8 gTimeUpdateCounter;
 
 EWRAM_DATA static u8 sObjectEventLoadFlag = 0;
 EWRAM_DATA struct WarpData gLastUsedWarp = {0};
@@ -807,10 +813,9 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     RunOnTransitionMapScript();
     InitMap();
     CopySecondaryTilesetToVramUsingHeap(gMapHeader.mapLayout);
-    LoadSecondaryTilesetPalette(gMapHeader.mapLayout);
+    LoadSecondaryTilesetPalette(gMapHeader.mapLayout, TRUE);
 
-    for (paletteIndex = NUM_PALS_IN_PRIMARY; paletteIndex < NUM_PALS_TOTAL; paletteIndex++)
-        ApplyWeatherColorMapToPal(paletteIndex);
+    ApplyWeatherColorMapToPal(NUM_PALS_IN_PRIMARY, NUM_PALS_TOTAL - NUM_PALS_IN_PRIMARY);
 
     InitSecondaryTilesetAnimation();
     UpdateLocationHistoryForRoamer();
@@ -1462,6 +1467,158 @@ void CB1_Overworld(void)
         DoCB1_Overworld(gMain.newKeys, gMain.heldKeys);
 }
 
+#define TINT_NIGHT Q_8_8(0.456) | Q_8_8(0.456) << 8 | Q_8_8(0.615) << 16
+
+const struct BlendSettings gTimeOfDayBlend[] =
+{
+    [TIME_OF_DAY_NIGHT] = {.coeff = 10, .blendColor = TINT_NIGHT, .isTint = TRUE},
+    [TIME_OF_DAY_TWILIGHT] = {.coeff = 4, .blendColor = 0xA8B0E0, .isTint = TRUE},
+    [TIME_OF_DAY_DAY] = {.coeff = 0, .blendColor = 0},
+};
+
+u8 UpdateTimeOfDay(void)
+{
+    s32 hours, minutes;
+    RtcCalcLocalTime();
+    hours = gLocalTime.hours;
+    minutes = gLocalTime.minutes;
+
+    if (hours < TIME_NIGHT_END_HOUR)
+    { // full night
+        currentTimeBlend.weight = 256;
+        currentTimeBlend.altWeight = 0;
+        gTimeOfDay = currentTimeBlend.time0 = currentTimeBlend.time1 = TIME_OF_DAY_NIGHT;
+    }
+    else if (hours < TIME_MORNING_DAY_START_HOUR)
+    { // night → twilight
+        currentTimeBlend.time0 = TIME_OF_DAY_NIGHT;
+        currentTimeBlend.time1 = TIME_OF_DAY_TWILIGHT;
+        currentTimeBlend.weight = 256 - 256 * ((hours - TIME_NIGHT_END_HOUR) * 60 + minutes)
+            / ((TIME_MORNING_DAY_START_HOUR - TIME_NIGHT_END_HOUR) * 60);
+        currentTimeBlend.altWeight = (256 - currentTimeBlend.weight) / 2;
+        gTimeOfDay = TIME_OF_DAY_NIGHT;
+    }
+    else if (hours < TIME_MORNING_TWILIGHT_END_HOUR)
+    { // twilight → day
+        currentTimeBlend.time0 = TIME_OF_DAY_TWILIGHT;
+        currentTimeBlend.time1 = TIME_OF_DAY_DAY;
+        currentTimeBlend.weight = 256 - 256 * ((hours - TIME_MORNING_DAY_START_HOUR) * 60 + minutes)
+            / ((TIME_MORNING_TWILIGHT_END_HOUR - TIME_MORNING_DAY_START_HOUR) * 60);
+        currentTimeBlend.altWeight = (256 - currentTimeBlend.weight) / 2 + 128;
+        gTimeOfDay = TIME_OF_DAY_DAY;
+    }
+    else if (hours < TIME_DAY_END_HOUR)
+    { // full day
+        currentTimeBlend.weight = currentTimeBlend.altWeight = 256;
+        gTimeOfDay = currentTimeBlend.time0 = currentTimeBlend.time1 = TIME_OF_DAY_DAY;
+    }
+    else if (hours < TIME_EVENING_NIGHT_START_HOUR)
+    { // day → twilight
+        currentTimeBlend.time0 = TIME_OF_DAY_DAY;
+        currentTimeBlend.time1 = TIME_OF_DAY_TWILIGHT;
+        currentTimeBlend.weight = 256 - 256 * ((hours - TIME_DAY_END_HOUR) * 60 + minutes)
+            / ((TIME_EVENING_NIGHT_START_HOUR - TIME_DAY_END_HOUR) * 60);
+        currentTimeBlend.altWeight = currentTimeBlend.weight / 2 + 128;
+        gTimeOfDay = TIME_OF_DAY_DAY;
+    }
+    else if (hours < TIME_NIGHT_START_HOUR)
+    { // twilight → night
+        currentTimeBlend.time0 = TIME_OF_DAY_TWILIGHT;
+        currentTimeBlend.time1 = TIME_OF_DAY_NIGHT;
+        currentTimeBlend.weight = 256 - 256 * ((hours - TIME_EVENING_NIGHT_START_HOUR) * 60 + minutes)
+            / ((TIME_NIGHT_START_HOUR - TIME_EVENING_NIGHT_START_HOUR) * 60);
+        currentTimeBlend.altWeight = currentTimeBlend.weight / 2;
+        gTimeOfDay = TIME_OF_DAY_NIGHT;
+    }
+    else
+    { // full night
+        currentTimeBlend.weight = 256;
+        currentTimeBlend.altWeight = 0;
+        gTimeOfDay = currentTimeBlend.time0 = currentTimeBlend.time1 = TIME_OF_DAY_NIGHT;
+    }
+    return gTimeOfDay;
+}
+
+bool8 AreStreetLightsOn(void)
+{
+    return gLocalTime.hours >= LIGHT_TURN_ON_HOUR || gLocalTime.hours < LIGHT_TURN_OFF_HOUR;
+}
+
+bool8 MapHasNaturalLight(u8 mapType)
+{
+    return mapType == MAP_TYPE_TOWN || mapType == MAP_TYPE_CITY || mapType == MAP_TYPE_ROUTE || mapType == MAP_TYPE_OCEAN_ROUTE;
+}
+
+void UpdateAltBgPalettes(u16 palettes)
+{
+    const struct Tileset *primary = gMapHeader.mapLayout->primaryTileset;
+    const struct Tileset *secondary = gMapHeader.mapLayout->secondaryTileset;
+    u32 i = 1;
+    if (!MapHasNaturalLight(gMapHeader.mapType))
+        return;
+    palettes &= ~((1 << NUM_PALS_IN_PRIMARY) - 1) | primary->swapPalettes;
+    palettes &= ((1 << NUM_PALS_IN_PRIMARY) - 1) | (secondary->swapPalettes << NUM_PALS_IN_PRIMARY);
+    palettes &= 0x1FFE;
+    palettes >>= 1;
+    if (!palettes)
+        return;
+    while (palettes)
+    {
+        if (palettes & 1)
+        {
+            if (i < NUM_PALS_IN_PRIMARY)
+            {
+                AvgPaletteWeighted(
+                    &((u16 *)primary->palettes)[PLTT_ID(i)],
+                    &((u16 *)primary->palettes)[PLTT_ID((i + 9) % 16)],
+                    gPlttBufferUnfaded + PLTT_ID(i),
+                    currentTimeBlend.altWeight);
+            }
+            else
+            {
+                AvgPaletteWeighted(
+                    &((u16 *)secondary->palettes)[PLTT_ID(i)],
+                    &((u16 *)secondary->palettes)[PLTT_ID((i + 9) % 16)],
+                    gPlttBufferUnfaded + PLTT_ID(i),
+                    currentTimeBlend.altWeight);
+            }
+        }
+        i++;
+        palettes >>= 1;
+    }
+}
+
+void UpdatePalettesWithTime(u32 palettes)
+{
+    if (MapHasNaturalLight(gMapHeader.mapType))
+    {
+        u32 i;
+        u32 mask = 1 << 16;
+        if (palettes >= 0x10000)
+            for (i = 0; i < 16; i++, mask <<= 1)
+                if (IS_BLEND_IMMUNE_TAG(GetSpritePaletteTagByPaletteNum(i)))
+                    palettes &= ~(mask);
+
+        palettes &= PALETTES_OBJECTS | PALETTES_MAP;
+        if (!palettes)
+            return;
+        TimeMixPalettes(palettes, gPlttBufferUnfaded, gPlttBufferFaded, (struct BlendSettings *)&gTimeOfDayBlend[currentTimeBlend.time0], (struct BlendSettings *)&gTimeOfDayBlend[currentTimeBlend.time1], currentTimeBlend.weight);
+    }
+}
+
+u8 UpdateSpritePaletteWithTime(u8 paletteNum)
+{
+    if (MapHasNaturalLight(gMapHeader.mapType))
+    {
+        u16 offset;
+        if (IS_BLEND_IMMUNE_TAG(GetSpritePaletteTagByPaletteNum(paletteNum)))
+            return paletteNum;
+        offset = (paletteNum + 16) << 4;
+        TimeMixPalettes(1, gPlttBufferUnfaded + offset, gPlttBufferFaded + offset, (struct BlendSettings *)&gTimeOfDayBlend[currentTimeBlend.time0], (struct BlendSettings *)&gTimeOfDayBlend[currentTimeBlend.time1], currentTimeBlend.weight);
+    }
+    return paletteNum;
+}
+
 static void OverworldBasic(void)
 {
     ScriptContext_RunScript();
@@ -1473,6 +1630,21 @@ static void OverworldBasic(void)
     UpdatePaletteFade();
     UpdateTilesetAnimations();
     DoScheduledBgTilemapCopiesToVram();
+    if (++gTimeUpdateCounter > TIME_OF_DAY_UPDATE_INTERVAL)
+    {
+        struct TimeBlendSettings cachedBlend = {
+            .time0 = currentTimeBlend.time0,
+            .time1 = currentTimeBlend.time1,
+            .weight = currentTimeBlend.weight,
+        };
+        gTimeUpdateCounter = 0;
+        UpdateTimeOfDay();
+        if (cachedBlend.time0 != currentTimeBlend.time0 || cachedBlend.time1 != currentTimeBlend.time1 || cachedBlend.weight != currentTimeBlend.weight)
+        {
+            // Also re-apply weather color map so gradual TOD updates keep weather tint
+            ApplyWeatherColorMapIfIdle(gWeatherPtr->colorMapIndex);
+        }
+    }
 }
 
 // This CB2 is used when starting
@@ -1488,7 +1660,10 @@ void CB2_Overworld(void)
         SetVBlankCallback(NULL);
     OverworldBasic();
     if (fading)
+    {
         SetFieldVBlankCallback();
+        return;
+    }
 }
 
 void SetMainCallback1(MainCallback cb)
@@ -2080,7 +2255,7 @@ static void ResetScreenForMapLoad(void)
     ScanlineEffect_Stop();
 
     DmaClear16(3, PLTT + 2, PLTT_SIZE - 2);
-    DmaFillLarge16(3, 0, (void *)VRAM, VRAM_SIZE, 0x1000);
+    DmaClearLarge16(3, (void *)VRAM, VRAM_SIZE, 0x1000);
     ResetOamRange(0, 128);
     LoadOam();
 }
@@ -2106,7 +2281,7 @@ static void InitOverworldGraphicsRegisters(void)
     SetGpuReg(REG_OFFSET_WIN1V, 0xFFFF);
     SetGpuReg(REG_OFFSET_BLDCNT, gOverworldBackgroundLayerFlags[1] | gOverworldBackgroundLayerFlags[2] | gOverworldBackgroundLayerFlags[3]
                                | BLDCNT_TGT2_OBJ | BLDCNT_EFFECT_BLEND);
-    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(13, 7));
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(9, 11));
     InitOverworldBgs();
     ScheduleBgCopyTilemapToVram(1);
     ScheduleBgCopyTilemapToVram(2);
@@ -2137,10 +2312,7 @@ static void ResumeMap(bool32 a1)
     ResetAllPicSprites();
     ResetCameraUpdateInfo();
     InstallCameraPanAheadCallback();
-    if (!a1)
-        InitObjectEventPalettes(0);
-    else
-        InitObjectEventPalettes(1);
+    FreeAllSpritePalettes();
 
     FieldEffectActiveListClear();
     StartWeather();
@@ -2995,7 +3167,7 @@ static u8 GetSpriteForLinkedPlayer(u8 linkPlayerId)
     return objEvent->spriteId;
 }
 
-static void GetLinkPlayerCoords(u8 linkPlayerId, u16 *x, u16 *y)
+static void GetLinkPlayerCoords(u8 linkPlayerId, s16 *x, s16 *y)
 {
     u8 objEventId = gLinkPlayerObjectEvents[linkPlayerId].objEventId;
     struct ObjectEvent *objEvent = &gObjectEvents[objEventId];
@@ -3017,7 +3189,7 @@ static u8 GetLinkPlayerElevation(u8 linkPlayerId)
     return objEvent->currentElevation;
 }
 
-static s32 UNUSED GetLinkPlayerObjectStepTimer(u8 linkPlayerId)
+static s16 UNUSED GetLinkPlayerObjectStepTimer(u8 linkPlayerId)
 {
     u8 objEventId = gLinkPlayerObjectEvents[linkPlayerId].objEventId;
     struct ObjectEvent *objEvent = &gObjectEvents[objEventId];
@@ -3046,26 +3218,18 @@ static void SetPlayerFacingDirection(u8 linkPlayerId, u8 facing)
     u8 objEventId = linkPlayerObjEvent->objEventId;
     struct ObjectEvent *objEvent = &gObjectEvents[objEventId];
 
-    if (linkPlayerObjEvent->active)
+    if (!linkPlayerObjEvent->active)
+        return;
+
+    if (facing > FACING_FORCED_RIGHT)
     {
-        if (facing > FACING_FORCED_RIGHT)
-        {
-            objEvent->triggerGroundEffectsOnMove = TRUE;
-        }
-        else
-        {
-            // This is a hack to split this code onto two separate lines, without declaring a local variable.
-            // C++ style inline variables would be nice here.
-            #define TEMP sLinkPlayerMovementModes[linkPlayerObjEvent->movementMode](linkPlayerObjEvent, objEvent, facing)
-
-            sMovementStatusHandler[TEMP](linkPlayerObjEvent, objEvent);
-
-            // Clean up the hack.
-            #undef TEMP
-        }
+        objEvent->triggerGroundEffectsOnMove = TRUE;
+        return;
     }
-}
 
+    sMovementStatusHandler[sLinkPlayerMovementModes[linkPlayerObjEvent->movementMode](
+        linkPlayerObjEvent, objEvent, facing)](linkPlayerObjEvent, objEvent);
+}
 
 static u8 MovementEventModeCB_Normal(struct LinkPlayerObjectEvent *linkPlayerObjEvent, struct ObjectEvent *objEvent, u8 dir)
 {

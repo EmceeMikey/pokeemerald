@@ -1428,7 +1428,7 @@ const u32 gUnionRoomChat_Keyboard_Gfx[] = INCGFX_U32("graphics/union_room_chat/k
 const u32 gUnionRoomChat_Keyboard_Tilemap[] = INCGFX_U32("graphics/union_room_chat/keyboard.bin", ".lz");
 const u32 gUnionRoomChat_RButtonLabels[] = INCGFX_U32("graphics/union_room_chat/r_button_labels.png", ".4bpp.lz");
 
-const u16 gTilesetPalettes_General[][16] =
+const u16 ALIGNED(4) gTilesetPalettes_General[][16] =
 {
     INCGFX_U16("data/tilesets/primary/general/palettes/00.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/primary/general/palettes/01.pal", ".gbapal"),
@@ -1512,7 +1512,7 @@ const u32 gTitleScreenCloudsTilemap[]      = INCGFX_U32("graphics/title_screen/c
 const u32 gTitleScreenPokemonLogoGfx[]     = INCGFX_U32("graphics/title_screen/pokemon_logo.png", ".8bpp.lz");
 const u32 gTitleScreenEmeraldVersionGfx[]  = INCGFX_U32("graphics/title_screen/emerald_version.png", ".8bpp.lz", "-mwidth 8 -mheight 4");
 const u16 gTitleScreenPressStartPal[]      = INCGFX_U16("graphics/title_screen/press_start.png", ".gbapal");
-const u32 gTitleScreenPressStartGfx[]      = INCGFX_U32("graphics/title_screen/press_start.png", ".4bpp.lz");
+const u32 gTitleScreenPressStartGfx[]      = INCGFX_U32("graphics/title_screen/press_start.png", ".4bpp.lz", "-mwidth 4 -mheight 1 -num_tiles 48 -Wnum_tiles");
 const u32 gTitleScreenPokemonLogoTilemap[] = INCGFX_U32("graphics/title_screen/pokemon_logo.bin", ".lz");
 
 const u16 gFrontierPassBg_Pal[][16]                      = INCGFX_U16("graphics/frontier_pass/bg.png", ".gbapal"); // 8 x 16
