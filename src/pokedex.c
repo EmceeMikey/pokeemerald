@@ -2074,7 +2074,7 @@ static bool8 LoadPokedexListPage(u8 page)
         SetBgTilemapBuffer(2, AllocZeroed(BG_SCREEN_SIZE));
         SetBgTilemapBuffer(1, AllocZeroed(BG_SCREEN_SIZE));
         SetBgTilemapBuffer(0, AllocZeroed(BG_SCREEN_SIZE));
-        DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenu_Gfx, 0x2000, 0, 0);
+        DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenu_Gfx, 0x2C00, 0, 0);
         CopyToBgTilemapBuffer(1, gPokedexList_Tilemap, 0, 0);
         CopyToBgTilemapBuffer(3, gPokedexListUnderlay_Tilemap, 0, 0);
         if (page == PAGE_MAIN)
@@ -2794,16 +2794,16 @@ static void CreateInterfaceSprites(u8 page)
 
     CreateSprite(&sScrollBarSpriteTemplate, 230, 20, 0);
     // Start button
-    CreateSprite(&sInterfaceTextSpriteTemplate, 16, 120, 0);
+    CreateSprite(&sInterfaceTextSpriteTemplate, 16, 112, 0);
     // Menu text
-    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 48, 120, 0);
+    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 20, 124, 0);
     StartSpriteAnim(&gSprites[spriteId], 3);
     // Select button
-    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 16, DISPLAY_HEIGHT - 16, 0);
+    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 16, DISPLAY_HEIGHT - 8, 0);
     StartSpriteAnim(&gSprites[spriteId], 2);
     gSprites[spriteId].data[2] = 0x80;
     // Search text
-    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 48, DISPLAY_HEIGHT - 16, 0);
+    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 54, DISPLAY_HEIGHT - 8, 0);
     StartSpriteAnim(&gSprites[spriteId], 1);
 
     spriteId = CreateSprite(&sRotatingPokeBallSpriteTemplate, 0, DISPLAY_HEIGHT / 2, 2);
@@ -2881,52 +2881,52 @@ static void CreateInterfaceSprites(u8 page)
             u16 seenOwnedCount;
 
             // Seen text
-            CreateSprite(&sSeenOwnTextSpriteTemplate, 32, 40, 1);
+            CreateSprite(&sSeenOwnTextSpriteTemplate, 16, 40, 1);
             // Own text
-            spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, 32, 76, 1);
+            spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, 16, 80, 1);
             StartSpriteAnim(&gSprites[spriteId], 1);
 
             // Hoenn text (seen)
-            CreateSprite(&sHoennNationalTextSpriteTemplate, 17, 45, 1);
+            //CreateSprite(&sHoennNationalTextSpriteTemplate, 17, 45, 1);
 
             // National text (seen)
-            spriteId = CreateSprite(&sHoennNationalTextSpriteTemplate, 17, 55, 1);
-            StartSpriteAnim(&gSprites[spriteId], 1);
+            //spriteId = CreateSprite(&sHoennNationalTextSpriteTemplate, 17, 55, 1);
+            //StartSpriteAnim(&gSprites[spriteId], 1);
 
             // Hoenn text (own)
-            CreateSprite(&sHoennNationalTextSpriteTemplate, 17, 81, 1);
+            //CreateSprite(&sHoennNationalTextSpriteTemplate, 17, 81, 1);
 
             // National text (own)
-            spriteId = CreateSprite(&sHoennNationalTextSpriteTemplate, 17, 91, 1);
-            StartSpriteAnim(&gSprites[spriteId], 1);
+            //spriteId = CreateSprite(&sHoennNationalTextSpriteTemplate, 17, 91, 1);
+            //StartSpriteAnim(&gSprites[spriteId], 1);
 
             // Hoenn seen value - 100s
-            seenOwnedCount = GetHoennPokedexCount(FLAG_GET_SEEN);
-            drawNextDigit = FALSE;
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 40, 45, 1);
-            digitNum = seenOwnedCount / 100;
-            StartSpriteAnim(&gSprites[spriteId], digitNum);
-            if (digitNum != 0)
-                drawNextDigit = TRUE;
-            else
-                gSprites[spriteId].invisible = TRUE;
+            //seenOwnedCount = GetHoennPokedexCount(FLAG_GET_SEEN);
+            //drawNextDigit = FALSE;
+            //spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 40, 45, 1);
+            //digitNum = seenOwnedCount / 100;
+            //StartSpriteAnim(&gSprites[spriteId], digitNum);
+            //if (digitNum != 0)
+            //    drawNextDigit = TRUE;
+            //else
+            //    gSprites[spriteId].invisible = TRUE;
 
             // Hoenn seen value - 10s
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 48, 45, 1);
-            digitNum = (seenOwnedCount % 100) / 10;
-            if (digitNum != 0 || drawNextDigit)
-                StartSpriteAnim(&gSprites[spriteId], digitNum);
-            else
-                gSprites[spriteId].invisible = TRUE;
+            //spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 48, 45, 1);
+            //digitNum = (seenOwnedCount % 100) / 10;
+            //if (digitNum != 0 || drawNextDigit)
+            //    StartSpriteAnim(&gSprites[spriteId], digitNum);
+            //else
+            //    gSprites[spriteId].invisible = TRUE;
 
             // Hoenn seen value - 1s
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 56, 45, 1);
-            digitNum = (seenOwnedCount % 100) % 10;
-            StartSpriteAnim(&gSprites[spriteId], digitNum);
+            //spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 56, 45, 1);
+            //digitNum = (seenOwnedCount % 100) % 10;
+            //StartSpriteAnim(&gSprites[spriteId], digitNum);
 
             // National seen value - 100s
             drawNextDigit = FALSE;
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 40, 55, 1);
+            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 12, 48, 1);
             digitNum = sPokedexView->seenCount / 100;
             StartSpriteAnim(&gSprites[spriteId], digitNum);
             if (digitNum != 0)
@@ -2935,7 +2935,7 @@ static void CreateInterfaceSprites(u8 page)
                 gSprites[spriteId].invisible = TRUE;
 
             // National seen value - 10s
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 48, 55, 1);
+            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 20, 48, 1);
             digitNum = (sPokedexView->seenCount % 100) / 10;
             if (digitNum != 0 || drawNextDigit)
                 StartSpriteAnim(&gSprites[spriteId], digitNum);
@@ -2943,38 +2943,38 @@ static void CreateInterfaceSprites(u8 page)
                 gSprites[spriteId].invisible = TRUE;
 
             // National seen value - 1s
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 56, 55, 1);
+            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 28, 48, 1);
             digitNum = (sPokedexView->seenCount % 100) % 10;
             StartSpriteAnim(&gSprites[spriteId], digitNum);
 
             seenOwnedCount = GetHoennPokedexCount(FLAG_GET_CAUGHT);
 
             // Hoenn owned value - 100s
-            drawNextDigit = FALSE;
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 40, 81, 1);
-            digitNum = seenOwnedCount / 100;
-            StartSpriteAnim(&gSprites[spriteId], digitNum);
-            if (digitNum != 0)
-                drawNextDigit = TRUE;
-            else
-                gSprites[spriteId].invisible = TRUE;
+            //drawNextDigit = FALSE;
+            //spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 40, 81, 1);
+            //digitNum = seenOwnedCount / 100;
+            //StartSpriteAnim(&gSprites[spriteId], digitNum);
+            //if (digitNum != 0)
+            //    drawNextDigit = TRUE;
+            //else
+            //    gSprites[spriteId].invisible = TRUE;
 
             // Hoenn owned value - 10s
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 48, 81, 1);
-            digitNum = (seenOwnedCount % 100) / 10;
-            if (digitNum != 0 || drawNextDigit)
-                StartSpriteAnim(&gSprites[spriteId], digitNum);
-            else
-                gSprites[spriteId].invisible = TRUE;
+            //spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 48, 81, 1);
+            //digitNum = (seenOwnedCount % 100) / 10;
+            //if (digitNum != 0 || drawNextDigit)
+            //    StartSpriteAnim(&gSprites[spriteId], digitNum);
+            //else
+            //    gSprites[spriteId].invisible = TRUE;
 
             // Hoenn owned value - 1s
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 56, 81, 1);
-            digitNum = (seenOwnedCount % 100) % 10;
-            StartSpriteAnim(&gSprites[spriteId], digitNum);
+            //spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 56, 81, 1);
+            //digitNum = (seenOwnedCount % 100) % 10;
+            //StartSpriteAnim(&gSprites[spriteId], digitNum);
 
             // National owned value - 100s
             drawNextDigit = FALSE;
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 40, 91, 1);
+            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 12, 90, 1);
             digitNum = sPokedexView->ownCount / 100;
             StartSpriteAnim(&gSprites[spriteId], digitNum);
             if (digitNum != 0)
@@ -2983,7 +2983,7 @@ static void CreateInterfaceSprites(u8 page)
                 gSprites[spriteId].invisible = TRUE;
 
             // National owned value  - 10s
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 48, 91, 1);
+            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 20, 90, 1);
             digitNum = (sPokedexView->ownCount % 100) / 10;
             if (digitNum != 0 || drawNextDigit)
                 StartSpriteAnim(&gSprites[spriteId], digitNum);
@@ -2991,7 +2991,7 @@ static void CreateInterfaceSprites(u8 page)
                 gSprites[spriteId].invisible = TRUE;
 
             // National owned value - 1s
-            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 56, 91, 1);
+            spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, 28, 90, 1);
             digitNum = (sPokedexView->ownCount % 100) % 10;
             StartSpriteAnim(&gSprites[spriteId], digitNum);
         }
@@ -3052,7 +3052,10 @@ static void SpriteCB_PokedexListMonSprite(struct Sprite *sprite)
     else
     {
         u32 var;
-        sprite->y2 = gSineTable[(u8)sprite->data[5]] * 76 / 256;
+        sprite->y2 = gSineTable[(u8)sprite->data[5]] * 69 / 256;
+        sprite->x2 = (gSineTable[(u8)sprite->data[5]] * 32 / 256);
+        if (sprite->data[5] > 1)
+            sprite->x2 = -sprite->x2;
         var = SAFE_DIV(0x10000, gSineTable[sprite->data[5] + 64]);
         if (var > 0xFFFF)
             var = 0xFFFF;
@@ -3257,7 +3260,7 @@ static void Task_LoadInfoScreen(u8 taskId)
         }
         break;
     case 1:
-        DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenu_Gfx, 0x2000, 0, 0);
+        DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenu_Gfx, 0x2C00, 0, 0);
         CopyToBgTilemapBuffer(3, gPokedexInfoScreen_Tilemap, 0, 0);
         FillWindowPixelBuffer(WIN_INFO, PIXEL_FILL(0));
         PutWindowTilemap(WIN_INFO);
@@ -3555,7 +3558,7 @@ static void Task_LoadCryScreen(u8 taskId)
         }
         break;
     case 1:
-        DecompressAndLoadBgGfxUsingHeap(3, &gPokedexMenu_Gfx, 0x2000, 0, 0);
+        DecompressAndLoadBgGfxUsingHeap(3, &gPokedexMenu_Gfx, 0x2C00, 0, 0);
         CopyToBgTilemapBuffer(3, &gPokedexCryScreen_Tilemap, 0, 0);
         FillWindowPixelBuffer(WIN_INFO, PIXEL_FILL(0));
         PutWindowTilemap(WIN_INFO);
@@ -3749,7 +3752,7 @@ static void Task_LoadSizeScreen(u8 taskId)
         }
         break;
     case 1:
-        DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenu_Gfx, 0x2000, 0, 0);
+        DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenu_Gfx, 0x2C00, 0, 0);
         CopyToBgTilemapBuffer(3, gPokedexSizeScreen_Tilemap, 0, 0);
         FillWindowPixelBuffer(WIN_INFO, PIXEL_FILL(0));
         PutWindowTilemap(WIN_INFO);
@@ -3984,7 +3987,7 @@ static void Task_DisplayCaughtMonDexPage(u8 taskId)
         }
         break;
     case 1:
-        DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenu_Gfx, 0x2000, 0, 0);
+        DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenu_Gfx, 0x2C00, 0, 0);
         CopyToBgTilemapBuffer(3, gPokedexInfoScreen_Tilemap, 0, 0);
         FillWindowPixelBuffer(WIN_INFO, PIXEL_FILL(0));
         PutWindowTilemap(WIN_INFO);
