@@ -911,10 +911,10 @@ const u8 gMewPokedexText[] = _(
     "notice even if it approaches people.");
 
 const u8 gChikoritaPokedexText[] = _(
-    "It waves its leaf around to keep foes\n"
-    "at bay. However, a sweet fragrance also\n"
-    "wafts from the leaf, creating a friendly\n"
-    "atmosphere that becalms the battlers.");
+    "The aura that emanates from its body\n"
+    "intensifies to alert others if it feels\n"
+    "sad or afraid.  It sees all emotion\n"
+    "in the form of waves.");
 
 const u8 gBayleefPokedexText[] = _(
     "A BAYLEEF's neck is ringed by curled-up\n"

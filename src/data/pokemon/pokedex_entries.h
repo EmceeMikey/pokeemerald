@@ -1826,11 +1826,11 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_CHIKORITA] =
     {
-        .categoryName = _("LEAF"),
-        .height = 9,
-        .weight = 64,
+        .categoryName = _("EMANATION"),
+        .height = 7,
+        .weight = 202,
         .description = gChikoritaPokedexText,
-        .pokemonScale = 512,
+        .pokemonScale = 398,
         .pokemonOffset = 20,
         .trainerScale = 256,
         .trainerOffset = 0,

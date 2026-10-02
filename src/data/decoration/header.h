@@ -963,7 +963,7 @@ const struct Decoration gDecorations[] =
     [DECOR_CYNDAQUIL_DOLL] =
     {
         .id = DECOR_CYNDAQUIL_DOLL,
-        .name = _("CYNDAQUIL DOLL"),
+        .name = _("FIRE MOUSE DOLL"),
         .permission = DECORPERM_SPRITE,
         .shape = DECORSHAPE_1x1,
         .category = DECORCAT_DOLL,
@@ -975,7 +975,7 @@ const struct Decoration gDecorations[] =
     [DECOR_CHIKORITA_DOLL] =
     {
         .id = DECOR_CHIKORITA_DOLL,
-        .name = _("CHIKORITA DOLL"),
+        .name = _("LEAF POKé DOLL"),
         .permission = DECORPERM_SPRITE,
         .shape = DECORSHAPE_1x1,
         .category = DECORCAT_DOLL,
@@ -987,7 +987,7 @@ const struct Decoration gDecorations[] =
     [DECOR_TOTODILE_DOLL] =
     {
         .id = DECOR_TOTODILE_DOLL,
-        .name = _("TOTODILE DOLL"),
+        .name = _("BIG JAW DOLL"),
         .permission = DECORPERM_SPRITE,
         .shape = DECORSHAPE_1x1,
         .category = DECORCAT_DOLL,
