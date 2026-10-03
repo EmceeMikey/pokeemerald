@@ -1262,7 +1262,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_BAYLEEF_1] = {
         .species = SPECIES_BAYLEEF,
-        .moves = {MOVE_RAZOR_LEAF, MOVE_TOXIC, MOVE_SAFEGUARD, MOVE_LIGHT_SCREEN},
+        .moves = {MOVE_AURA_SPHERE, MOVE_METAL_CLAW, MOVE_DOUBLE_TEAM, MOVE_MIMIC},
         .itemTableId = BATTLE_FRONTIER_ITEM_BRIGHT_POWDER,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_DOCILE
@@ -1997,7 +1997,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_BAYLEEF_2] = {
         .species = SPECIES_BAYLEEF,
-        .moves = {MOVE_GIGA_DRAIN, MOVE_BODY_SLAM, MOVE_GRASS_WHISTLE, MOVE_REST},
+        .moves = {MOVE_AURA_SPHERE, MOVE_HI_JUMP_KICK, MOVE_IRON_TAIL, MOVE_TAUNT},
         .itemTableId = BATTLE_FRONTIER_ITEM_CHESTO_BERRY,
         .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
         .nature = NATURE_DOCILE

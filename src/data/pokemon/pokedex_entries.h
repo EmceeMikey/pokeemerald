@@ -1838,9 +1838,9 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_BAYLEEF] =
     {
-        .categoryName = _("LEAF"),
+        .categoryName = _("AURA"),
         .height = 12,
-        .weight = 158,
+        .weight = 540,
         .description = gBayleefPokedexText,
         .pokemonScale = 296,
         .pokemonOffset = 4,

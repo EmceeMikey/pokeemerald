@@ -917,10 +917,10 @@ const u8 gChikoritaPokedexText[] = _(
     "in the form of waves.");
 
 const u8 gBayleefPokedexText[] = _(
-    "A BAYLEEF's neck is ringed by curled-up\n"
-    "leaves. Inside each leaf is a small tree\n"
-    "shoot. The fragrance of this shoot\n"
-    "makes people peppy.");
+    "Not only does it perceive auras, but it\n"
+    "has also gained the power to control them.\n"
+    "A well-trained LUCARIO can sense auras to\n"
+    "read thoughts and movements in battle.");
 
 const u8 gMeganiumPokedexText[] = _(
     "The fragrance of a MEGANIUM's flower\n"
