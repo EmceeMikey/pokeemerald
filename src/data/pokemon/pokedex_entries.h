@@ -1850,7 +1850,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_MEGANIUM] =
     {
-        .categoryName = _("HERB"),
+        .categoryName = _("BIG EATER"),
         .height = 18,
         .weight = 1005,
         .description = gMeganiumPokedexText,

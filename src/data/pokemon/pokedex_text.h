@@ -923,10 +923,10 @@ const u8 gBayleefPokedexText[] = _(
     "read thoughts and movements in battle.");
 
 const u8 gMeganiumPokedexText[] = _(
-    "The fragrance of a MEGANIUM's flower\n"
-    "soothes and calms emotions. In battle,\n"
-    "it gives off more of its becalming scent\n"
-    "to blunt the foe's fighting spirit.");
+    "It hides food under its long body hair.\n"
+    "In its desperation to gulp down food, it\n"
+    "forgets about the food it previously\n"
+    "had hidden under its fur.");
 
 const u8 gCyndaquilPokedexText[] = _(
     "It flares flames from its back to protect\n"
