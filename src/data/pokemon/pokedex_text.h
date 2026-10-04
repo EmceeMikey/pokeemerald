@@ -929,16 +929,16 @@ const u8 gMeganiumPokedexText[] = _(
     "had hidden under its fur.");
 
 const u8 gCyndaquilPokedexText[] = _(
-    "It flares flames from its back to protect\n"
-    "itself. The fire burns vigorously if the\n"
-    "POKéMON is angry. When it is tired,\n"
-    "it sputters with incomplete combustion.");
+    "While it appears as though it is always\n"
+    "crying, it is actually adjusting its\n"
+    "body's fluid levels by eliminating the\n"
+    "excess water.  Prefers dry environments.");
 
 const u8 gQuilavaPokedexText[] = _(
-    "It intimidates foes with intense gusts of\n"
-    "flames and superheated air. Its quick\n"
-    "nimbleness lets it dodge attacks even\n"
-    "while scorching an enemy.");
+    "It is constantly mimicking the expressions\n"
+    "and motions of its foes to confuse them.\n"
+    "When it works, MIME JR. gets so excited it\n"
+    "forgets it was mimicking something.");
 
 const u8 gTyphlosionPokedexText[] = _(
     "It can hide behind a shimmering heat haze\n"

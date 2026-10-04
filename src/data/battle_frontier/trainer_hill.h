@@ -3267,8 +3267,8 @@ static const struct TrainerHillFloor sFloors_Unique[] = {
                                     [5] =
                                         {
                                             .species = SPECIES_QUILAVA,
-                                            .heldItem = ITEM_CHARCOAL,
-                                            .moves = {MOVE_QUICK_ATTACK, MOVE_FLAMETHROWER, MOVE_FLAME_WHEEL, MOVE_SWIFT},
+                                            .heldItem = ITEM_TWISTED_SPOON,
+                                            .moves = {MOVE_HYPNOSIS, MOVE_DREAM_EATER, MOVE_PSYCHIC, MOVE_ENCORE},
                                             .hpEV = 6,
                                             .speedEV = 252,
                                             .spAttackEV = 252,
@@ -3281,7 +3281,7 @@ static const struct TrainerHillFloor sFloors_Unique[] = {
                                             .spDefenseIV = 15,
                                             .abilityNum = 0,
                                             .personality = 0x28,
-                                            .nickname = _("QUILAVA"),
+                                            .nickname = _("MIME JR."),
                                             .friendship = 100,
                                         },
                                 },

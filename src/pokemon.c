@@ -5609,6 +5609,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem)
                 if (gEvolutionTable[species][i].param <= beauty)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+            case EVO_MOVE_MIMIC:
+                if (GetMonData(mon, MON_DATA_MOVE1, 0) == MOVE_MIMIC || GetMonData(mon, MON_DATA_MOVE2, 0) == MOVE_MIMIC || GetMonData(mon, MON_DATA_MOVE3, 0) == MOVE_MIMIC || GetMonData(mon, MON_DATA_MOVE4, 0) == MOVE_MIMIC)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             }
         }
         break;

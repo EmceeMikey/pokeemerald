@@ -1862,9 +1862,9 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_CYNDAQUIL] =
     {
-        .categoryName = _("FIRE MOUSE"),
+        .categoryName = _("BONSAI"),
         .height = 5,
-        .weight = 79,
+        .weight = 150,
         .description = gCyndaquilPokedexText,
         .pokemonScale = 539,
         .pokemonOffset = 21,
@@ -1874,9 +1874,9 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_QUILAVA] =
     {
-        .categoryName = _("VOLCANO"),
-        .height = 9,
-        .weight = 190,
+        .categoryName = _("MIME"),
+        .height = 6,
+        .weight = 130,
         .description = gQuilavaPokedexText,
         .pokemonScale = 329,
         .pokemonOffset = 11,
