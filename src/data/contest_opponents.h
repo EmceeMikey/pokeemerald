@@ -781,7 +781,7 @@ const struct ContestPokemon gContestOpponents[] =
     },
     [CONTEST_OPPONENT_COLBY] = {
         .species = SPECIES_TOTODILE,
-        .nickname = _("TOTDIL"),
+        .nickname = _("MAPPY"),
         .trainerName = _("COLBY"),
         .trainerGfxId = OBJ_EVENT_GFX_NINJA_BOY,
         .aiFlags = CONTEST_AI_SET_6,

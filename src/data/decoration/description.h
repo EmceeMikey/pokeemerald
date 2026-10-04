@@ -378,7 +378,7 @@ const u8 DecorDesc_CHIKORITA_DOLL[] = _(
         "or a desk.");
 
 const u8 DecorDesc_TOTODILE_DOLL[] = _(
-    "A doll from far away..\n"
+    "A doll from far away.\n"
         "Place it on a mat\n"
         "or a desk.");
 

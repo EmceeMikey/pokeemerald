@@ -941,16 +941,16 @@ const u8 gQuilavaPokedexText[] = _(
     "forgets it was mimicking something.");
 
 const u8 gTyphlosionPokedexText[] = _(
-    "It can hide behind a shimmering heat haze\n"
-    "that it creates using its intense flames.\n"
-    "TYPHLOSION create blazing explosive\n"
-    "blasts that burn everything to cinders.");
+    "It primarily dwels in cold, remote regions.\n"
+    "A pack of WEAVILE has been spotted roaming\n"
+    "the HOENN region as of late.  It signals to\n"
+    "its pack by carving patterns in trees.");
 
 const u8 gTotodilePokedexText[] = _(
-    "Despite its small body, TOTODILE's jaws\n"
-    "are very powerful. While it may think it is\n"
-    "just playfully nipping, its bite has enough\n"
-    "strength to cause serious injury.");
+    "It is said to be born on the chilly seafloor.\n"
+    "When its egg hatches, it migrates across the\n"
+    "ocean to visit faraway regions.  It always\n"
+    "returns to its birthplace.");
 
 const u8 gCroconawPokedexText[] = _(
     "Once its jaws clamp down on its foe, it will\n"

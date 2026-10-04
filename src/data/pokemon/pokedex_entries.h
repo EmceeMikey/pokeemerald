@@ -1886,9 +1886,9 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_TYPHLOSION] =
     {
-        .categoryName = _("VOLCANO"),
-        .height = 17,
-        .weight = 795,
+        .categoryName = _("SHARP CLAW"),
+        .height = 11,
+        .weight = 340,
         .description = gTyphlosionPokedexText,
         .pokemonScale = 256,
         .pokemonOffset = 0,
@@ -1898,9 +1898,9 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_TOTODILE] =
     {
-        .categoryName = _("BIG JAW"),
-        .height = 6,
-        .weight = 95,
+        .categoryName = _("SEAFARING"),
+        .height = 3,
+        .weight = 14,
         .description = gTotodilePokedexText,
         .pokemonScale = 487,
         .pokemonOffset = 20,
