@@ -538,17 +538,17 @@ const u8 DecorDesc_LAPRAS_DOLL[] = _(
         "or a desk.");
 
 const u8 DecorDesc_VENUSAUR_DOLL[] = _(
-    "A large doll.\n"
+    "A large doll from far away.\n"
         "Place it on a mat\n"
         "or a desk.");
 
 const u8 DecorDesc_CHARIZARD_DOLL[] = _(
-    "A large doll.\n"
+    "A large doll from far away.\n"
         "Place it on a mat\n"
         "or a desk.");
 
 const u8 DecorDesc_BLASTOISE_DOLL[] = _(
-    "A large doll.\n"
+    "A large doll from far away.\n"
         "Place it on a mat\n"
         "or a desk.");
 

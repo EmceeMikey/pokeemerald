@@ -17,10 +17,10 @@ const u8 gIvysaurPokedexText[] = _(
     "its GROOKEY fans.");
 
 const u8 gVenusaurPokedexText[] = _(
-    "By drumming, it taps into the power of\n"
-    "its special tree stump.  The roots of\n"
-    "the stump follow its direction in\n"
-    "battle.");
+    "By drumming, it taps into the power\n"
+    "of its special tree stump.  The\n"
+    "roots of the stump follow its\n"
+    "direction in battle.");
 
 const u8 gCharmanderPokedexText[] = _(
     "Its flame sac is small, so energy is\n"
