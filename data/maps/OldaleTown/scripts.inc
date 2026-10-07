@@ -28,6 +28,7 @@ OldaleTown_EventScript_MoveMartEmployee::
 OldaleTown_EventScript_TownSign::
 	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
 	special FillPokedex
+	setflag FLAG_SYS_TOGEDEX_GET
 	end
 
 OldaleTown_EventScript_Girl::

@@ -1697,17 +1697,27 @@ static void Task_HandlePokedexInput(u8 taskId)
         }
         else if (JOY_NEW(SELECT_BUTTON))
         {
-            PlaySE(SE_SELECT);
-            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-            gTasks[taskId].tLoadScreenTaskId = LoadSearchMenu();
-            sPokedexView->screenSwitchState = 0;
-            sPokedexView->pokeBallRotationBackup = sPokedexView->pokeBallRotation;
-            sPokedexView->selectedPokemonBackup = sPokedexView->selectedPokemon;
-            sPokedexView->dexModeBackup = sPokedexView->dexMode;
-            sPokedexView->dexOrderBackup = sPokedexView->dexOrder;
-            gTasks[taskId].func = Task_WaitForExitSearch;
-            PlaySE(SE_PC_LOGIN);
-            FreeWindowAndBgBuffers();
+            if (FlagGet(FLAG_SYS_TOGEDEX_GET))
+            {
+                PlaySE(SE_SELECT);
+                BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+                gTasks[taskId].tLoadScreenTaskId = LoadPokedexListPage(PAGE_MAIN);
+                sPokedexView->screenSwitchState = 0;
+                sPokedexView->selectedPokemon = 0;
+                sPokedexView->pokeBallRotationBackup = sPokedexView->pokeBallRotation;
+                sPokedexView->selectedPokemonBackup = sPokedexView->selectedPokemon;
+                sPokedexView->dexModeBackup = sPokedexView->dexMode;
+                sPokedexView->dexMode = abs(sPokedexView->dexMode - 1);
+                sPokedexView->dexOrderBackup = sPokedexView->dexOrder;
+                gTasks[taskId].func = Task_OpenPokedexMainPage;
+                PlaySE(SE_PC_LOGIN);
+                FreeWindowAndBgBuffers();
+                ClearMonSprites();
+            }
+            else
+                {
+                PlaySE(SE_FAILURE);
+                }
         }
         else if (JOY_NEW(B_BUTTON))
         {
@@ -2152,7 +2162,7 @@ static bool8 LoadPokedexListPage(u8 page)
 
 static void LoadPokedexBgPalette(bool8 isSearchResults)
 {
-    if (isSearchResults == TRUE)
+    if (sPokedexView->dexMode == DEX_MODE_HOENN)
         LoadPalette(gPokedexSearchResults_Pal + 1, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(6 * 16 - 1));
     else if (!IsNationalPokedexEnabled())
         LoadPalette(gPokedexBgHoenn_Pal + 1, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(6 * 16 - 1));
@@ -2822,59 +2832,59 @@ static void CreateInterfaceSprites(u8 page)
     {
         bool32 drawNextDigit;
 
-        if (!IsNationalPokedexEnabled())
+        if (sPokedexView->dexMode == DEX_MODE_HOENN)
         {
             // Seen text
-            CreateSprite(&sSeenOwnTextSpriteTemplate, 32, 40, 1);
+            //CreateSprite(&sSeenOwnTextSpriteTemplate, 32, 40, 1);
             // Own text
-            spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, 32, 72, 1);
-            StartSpriteAnim(&gSprites[spriteId], 1);
+            //spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, 32, 72, 1);
+            //StartSpriteAnim(&gSprites[spriteId], 1);
 
             // Seen value - 100s
-            drawNextDigit = FALSE;
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 24, 48, 1);
-            digitNum = sPokedexView->seenCount / 100;
-            StartSpriteAnim(&gSprites[spriteId], digitNum);
-            if (digitNum != 0)
-                drawNextDigit = TRUE;
-            else
-                gSprites[spriteId].invisible = TRUE;
+           // drawNextDigit = FALSE;
+           // spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 24, 48, 1);
+           // digitNum = sPokedexView->seenCount / 100;
+           // StartSpriteAnim(&gSprites[spriteId], digitNum);
+           // if (digitNum != 0)
+           //     drawNextDigit = TRUE;
+           // else
+           //     gSprites[spriteId].invisible = TRUE;
 
             // Seen value - 10s
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 32, 48, 1);
-            digitNum = (sPokedexView->seenCount % 100) / 10;
-            if (digitNum != 0 || drawNextDigit)
-                StartSpriteAnim(&gSprites[spriteId], digitNum);
-            else
-                gSprites[spriteId].invisible = TRUE;
+           // spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 32, 48, 1);
+           // digitNum = (sPokedexView->seenCount % 100) / 10;
+           // if (digitNum != 0 || drawNextDigit)
+          //      StartSpriteAnim(&gSprites[spriteId], digitNum);
+          //  else
+          //      gSprites[spriteId].invisible = TRUE;
 
             // Seen value - 1s
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 40, 48, 1);
-            digitNum = (sPokedexView->seenCount % 100) % 10;
-            StartSpriteAnim(&gSprites[spriteId], digitNum);
+         //   spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 40, 48, 1);
+           // digitNum = (sPokedexView->seenCount % 100) % 10;
+          //  StartSpriteAnim(&gSprites[spriteId], digitNum);
 
             // Owned value - 100s
-            drawNextDigit = FALSE;
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 24, 80, 1);
-            digitNum = sPokedexView->ownCount / 100;
-            StartSpriteAnim(&gSprites[spriteId], digitNum);
-            if (digitNum != 0)
-                drawNextDigit = TRUE;
-            else
-                gSprites[spriteId].invisible = TRUE;
+         //   drawNextDigit = FALSE;
+         //   spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 24, 80, 1);
+         //   digitNum = sPokedexView->ownCount / 100;
+         //   StartSpriteAnim(&gSprites[spriteId], digitNum);
+          //  if (digitNum != 0)
+         //       drawNextDigit = TRUE;
+         //   else
+         //       gSprites[spriteId].invisible = TRUE;
 
             // Owned value - 10s
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 32, 80, 1);
-            digitNum = (sPokedexView->ownCount % 100) / 10;
-            if (digitNum != 0 || drawNextDigit)
-                StartSpriteAnim(&gSprites[spriteId], digitNum);
-            else
-                gSprites[spriteId].invisible = TRUE;
+          //  spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 32, 80, 1);
+         //   digitNum = (sPokedexView->ownCount % 100) / 10;
+         //   if (digitNum != 0 || drawNextDigit)
+        //        StartSpriteAnim(&gSprites[spriteId], digitNum);
+         //   else
+         //       gSprites[spriteId].invisible = TRUE;
 
             // Owned value - 1s
-            spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 40, 80, 1);
-            digitNum = (sPokedexView->ownCount % 100) % 10;
-            StartSpriteAnim(&gSprites[spriteId], digitNum);
+          //  spriteId = CreateSprite(&sHoennDexSeenOwnNumberSpriteTemplate, 40, 80, 1);
+        //    digitNum = (sPokedexView->ownCount % 100) % 10;
+          //  StartSpriteAnim(&gSprites[spriteId], digitNum);
         }
         else
         {
