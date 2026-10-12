@@ -1,6 +1,8 @@
 Route117_EventScript_DaycareMan::
 	lock
 	faceplayer
+	goto_if_unset FLAG_SYS_TOGEDEX_GET, Route117_EventScript_ReceiveStoneEgg
+	goto_if_unset FLAG_RECEIVED_EXP_SHARE, Route117_EventScript_BringStoneEgg
 	special GetDaycareMonNicknames
 	specialvar VAR_RESULT, GetDaycareState
 	goto_if_eq VAR_RESULT, DAYCARE_EGG_WAITING, Route117_EventScript_DaycareEggWaiting
@@ -8,6 +10,21 @@ Route117_EventScript_DaycareMan::
 	goto_if_eq VAR_RESULT, DAYCARE_TWO_MONS, Route117_EventScript_CheckOnTwoMons
 	msgbox Route117_Text_SeeWifeIfYoudLikeMeToRaiseMon, MSGBOX_DEFAULT
 	release
+	end
+
+Route117_EventScript_ReceiveStoneEgg::
+	setflag FLAG_SYS_TOGEDEX_GET
+	msgbox Route117_Text_DayCareFirstVisit, MSGBOX_DEFAULT
+	giveitem ITEM_LETTER
+	msgbox Route117_Text_EnableTogedex, MSGBOX_DEFAULT
+	playfanfare MUS_REGISTER_MATCH_CALL
+	msgbox Route117_Text_ReceivedTogedex, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Route117_EventScript_BringStoneEgg::
+	msgbox Route117_Text_BringStoneEgg, MSGBOX_DEFAULT
+	releaseall
 	end
 
 Route117_EventScript_DaycareEggWaiting::
@@ -408,3 +425,26 @@ Route117_PokemonDayCare_Text_YoullBeLeftWithJustOne:
 	.string "me, you'll be left with just one.\p"
 	.string "You will be better off if you catch\n"
 	.string "some more, I dare say.$"
+
+Route117_Text_DayCareFirstVisit:
+	.string "Oh, hello there.  You're an unfamiliar\n"
+	.string "face.  Have you come to leave your\l"
+	.string "POKéMON in the DAY-CARE?  Hmm?  You\l"
+	.string "say you've come to run an errand for\l"
+	.string "PRESIDENT STONE?\p"
+	.string "Oh, yes!  His rare EGG.  We don't know\n"
+	.string "how it got here, but you will take it\l"
+	.string "to him, yes?$"
+
+Route117_Text_EnableTogedex:
+	.string "Another thing-- a friend of PRESIDENT\n"
+	.string "STONE's is a friend of mine.  Let me\l"
+	.string "see your POKéDEX.  The DEVON CORP has\p"
+	.string "such a way with technology!$"
+
+Route117_Text_ReceivedTogedex:
+	.string "{PLAYER}'s POKéDEX was upgraded!\n"
+	.string "Press SELECT to view the TOGéDEX.$"
+
+Route117_Text_BringStoneEgg:
+	.string "Please bring PRESIDENT STONE his EGG!$"

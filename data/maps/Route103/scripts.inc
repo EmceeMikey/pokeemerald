@@ -10,6 +10,7 @@ Route103_OnTransition:
 
 Route103_OnLoad:
 	call_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_OpenAlteringCave
+	call_if_unset FLAG_RECEIVED_HM_ROCK_SMASH, Route103_EventScript_HideBridge
 	end
 
 Route103_EventScript_OpenAlteringCave::
@@ -188,7 +189,12 @@ Route103_Movement_WatchRivalExitFacingEastOrWest:
 	step_end
 
 Route103_EventScript_Boy::
+	goto_if_set FLAG_RECEIVED_HM_ROCK_SMASH, Route103_EventScript_BoyBridge
 	msgbox Route103_Text_ShouldHaveBroughtPotion, MSGBOX_NPC
+	end
+
+Route103_EventScript_BoyBridge::
+	msgbox Route103_Text_BridgeFinished, MSGBOX_NPC
 	end
 
 Route103_EventScript_Man::
@@ -286,6 +292,49 @@ Route103_EventScript_Isabelle::
 	msgbox Route103_Text_IsabellePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route103_EventScript_HideBridge::
+	setmetatile 30, 8, METATILE_General_Water_Edge_Top_Left, TRUE
+	setmetatile 31, 8, METATILE_General_CalmWater, TRUE
+	setmetatile 32, 8, METATILE_General_CalmWater, TRUE
+	setmetatile 33, 8, METATILE_General_CalmWater, TRUE
+	setmetatile 34, 8, METATILE_General_CalmWater, TRUE
+	setmetatile 35, 8, METATILE_General_CalmWater, TRUE
+	setmetatile 36, 8, METATILE_General_CalmWater, TRUE
+	setmetatile 37, 8, METATILE_General_Water_Edge_Top_Right, TRUE
+	setmetatile 30, 9, METATILE_General_Water_Edge_Middle_Left, TRUE
+	setmetatile 31, 9, METATILE_General_CalmWater, TRUE
+	setmetatile 32, 9, METATILE_General_CalmWater, TRUE
+	setmetatile 33, 9, METATILE_General_CalmWater, TRUE
+	setmetatile 34, 9, METATILE_General_CalmWater, TRUE
+	setmetatile 35, 9, METATILE_General_CalmWater, TRUE
+	setmetatile 36, 9, METATILE_General_CalmWater, TRUE
+	setmetatile 37, 9, METATILE_General_Water_Edge_Middle_Right, TRUE
+	setmetatile 30, 10, METATILE_General_Water_Edge_Middle_Left, TRUE
+	setmetatile 31, 10, METATILE_General_CalmWater, TRUE
+	setmetatile 32, 10, METATILE_General_CalmWater, TRUE
+	setmetatile 33, 10, METATILE_General_CalmWater, TRUE
+	setmetatile 34, 10, METATILE_General_CalmWater, TRUE
+	setmetatile 35, 10, METATILE_General_CalmWater, TRUE
+	setmetatile 36, 10, METATILE_General_CalmWater, TRUE
+	setmetatile 37, 10, METATILE_General_Water_Edge_Middle_Right, TRUE
+	setmetatile 30, 11, METATILE_General_Water_Edge_Middle_Left, TRUE
+	setmetatile 31, 11, METATILE_General_CalmWater, TRUE
+	setmetatile 32, 11, METATILE_General_CalmWater, TRUE
+	setmetatile 33, 11, METATILE_General_CalmWater, TRUE
+	setmetatile 34, 11, METATILE_General_CalmWater, TRUE
+	setmetatile 35, 11, METATILE_General_CalmWater, TRUE
+	setmetatile 36, 11, METATILE_General_CalmWater, TRUE
+	setmetatile 37, 11, METATILE_General_Water_Edge_Middle_Right, TRUE
+	setmetatile 30, 12, METATILE_General_Water_Edge_Bottom_Left, TRUE
+	setmetatile 31, 12, METATILE_General_CalmWater, TRUE
+	setmetatile 32, 12, METATILE_General_CalmWater, TRUE
+	setmetatile 33, 12, METATILE_General_CalmWater, TRUE
+	setmetatile 34, 12, METATILE_General_CalmWater, TRUE
+	setmetatile 35, 12, METATILE_General_CalmWater, TRUE
+	setmetatile 36, 12, METATILE_General_CalmWater, TRUE
+	setmetatile 37, 12, METATILE_General_Water_Edge_Bottom_Right, TRUE
+	end
+
 Route103_Text_MayRoute103Pokemon:
 	.string "MAY: Let's see… The POKéMON found\n"
 	.string "on ROUTE 103 include…$"
@@ -351,3 +400,6 @@ Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
 
+Route103_Text_BridgeFinished:
+	.string "Hey, the bridge to SLATEPORT CITY\n"
+	.string "is finally done!  Looks spiffy!$"

@@ -30,9 +30,10 @@ RusturfTunnel_EventScript_Wanda::
 RusturfTunnel_EventScript_WandasBoyfriend::
 	lock
 	faceplayer
-	goto_if_set FLAG_TEMP_1, RusturfTunnel_EventScript_AlreadySpokenTo
-	setflag FLAG_TEMP_1
+	goto_if_set FLAG_RECEIVED_HM_ROCK_SMASH, RusturfTunnel_EventScript_AlreadySpokenTo
 	msgbox RusturfTunnel_Text_WhyCantTheyKeepDigging, MSGBOX_DEFAULT
+	giveitem ITEM_HM_ROCK_SMASH
+	setflag FLAG_RECEIVED_HM_ROCK_SMASH
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
@@ -56,8 +57,7 @@ RusturfTunnel_EventScript_ClearTunnelScene::
 	msgbox RusturfTunnel_Text_YouShatteredBoulderTakeHM, MSGBOX_DEFAULT
 	call_if_eq VAR_TEMP_1, 2, RusturfTunnel_EventScript_WandasBoyfriendApproachPlayer
 	call_if_eq VAR_TEMP_1, 3, RusturfTunnel_EventScript_WandasBoyfriendApproachPlayer
-	giveitem ITEM_HM_STRENGTH
-	setflag FLAG_RECEIVED_HM_STRENGTH
+	giveitem ITEM_EXPERT_BELT
 	msgbox RusturfTunnel_Text_ExplainStrength, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_TEMP_1, 1, RusturfTunnel_EventScript_BoyfriendApproachWanda1
@@ -468,32 +468,32 @@ RusturfTunnel_Text_ThankYouLetsGoHomePeeko:
 
 RusturfTunnel_Text_WhyCantTheyKeepDigging:
 	.string "… …\p"
-	.string "Why can't they keep digging?\n"
-	.string "Is the bedrock too hard?\p"
-	.string "My beloved awaits me in VERDANTURF\n"
-	.string "TOWN just beyond here…\p"
-	.string "If RUSTBORO and VERDANTURF were\n"
-	.string "joined by this tunnel, I could visit\l"
-	.string "her every day…\p"
-	.string "But this…\n"
-	.string "What am I to do?$"
+	.string "Oh, it's you, from earlier!  Check it\n"
+	.string "out-- I've been using this HM move, or\l"
+	.string "HIDDEN MACHINE, to dig my way to my\l"
+	.string "girlfriend in VERDANTURF TOWN just\l"
+	.string "beyond these small rocks…\p"
+	.string "It's surprisingly cathartic.\n"
+	.string "Would you wanna give it a try?$"
 
 RusturfTunnel_Text_ToGetToVerdanturf:
 	.string "To get from RUSTBORO to VERDANTURF,\n"
 	.string "you need to go to DEWFORD, then pass\l"
-	.string "through SLATEPORT and MAUVILLE…$"
+	.string "through SLATEPORT and MAUVILLE…\p"
+	.string "…Unless, of course, you know the\n"
+	.string "ROCK SMASH technique!  Show me!$"
 
 RusturfTunnel_Text_YouShatteredBoulderTakeHM:
-	.string "Wow! You shattered that boulder\n"
-	.string "blocking the way.\p"
-	.string "To show you how much I appreciate it,\n"
-	.string "I'd like you to have this HM.$"
+	.string "Woohoo!  Way to pulverize that rock!\n"
+	.string "You've finished the RUSTURF TUNNEL!\l"
+	.string "And now my girlfriend and I are\l"
+	.string "just a short trip apart.  Take this!$"
 
 RusturfTunnel_Text_ExplainStrength:
-	.string "That HM contains STRENGTH.\p"
-	.string "If a muscular POKéMON were to learn\n"
-	.string "that, it would be able to move even\l"
-	.string "large boulders.$"
+	.string "That EXPERT BELT is for, well, experts.\n"
+	.string "If you know your type matchups, that\l"
+	.string "BELT will really let you wreak havoc!\l"
+	.string "Nwrrooaaarr!!$"
 
 RusturfTunnel_Text_WandaReunion:
 	.string "WANDA!\n"

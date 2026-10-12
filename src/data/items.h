@@ -3343,7 +3343,7 @@ const struct Item gItems[] =
 
     [ITEM_LETTER] =
     {
-        .name = _("LETTER"),
+        .name = _("STONE'S EGG"),
         .itemId = ITEM_LETTER,
         .price = 0,
         .description = sLetterDesc,

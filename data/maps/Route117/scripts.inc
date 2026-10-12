@@ -7,9 +7,14 @@ Route117_OnTransition:
 	end
 
 Route117_EventScript_TryMoveDayCareMan::
+	call_if_unset FLAG_SYS_TOGEDEX_GET, Route117_EventScript_DayCareFirstVisit
 	goto_if_unset FLAG_PENDING_DAYCARE_EGG, Route117_EventScript_StopMoveDayCareMan
 	setobjectxyperm LOCALID_DAYCARE_MAN, 47, 6
 Route117_EventScript_StopMoveDayCareMan::
+	return
+
+Route117_EventScript_DayCareFirstVisit::
+	setobjectxyperm LOCALID_DAYCARE_MAN, 47, 6
 	return
 
 Route117_EventScript_Woman::

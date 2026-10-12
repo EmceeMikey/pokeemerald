@@ -202,3 +202,5 @@
 .include "sound/voicegroups/rg_sevii_67.inc"
 .include "sound/voicegroups/drumsets/rg_credits.inc"
 .include "sound/voicegroups/mus_pocket_rocket_battle.inc"
+.include "sound/voicegroups/mus_formanaphy.inc"
+.include "sound/voicegroups/mus_file_select.inc"

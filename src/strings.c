@@ -1819,3 +1819,13 @@ const u8 gText_Answer[] = _("ANSWER");
 const u8 gText_PokeBalls[] = _("POKé BALLS");
 const u8 gText_Berry[] = _("BERRY");
 const u8 gText_Berries[] = _("BERRIES");
+
+const u8 gText_WaterChoice[] = _("WATER");
+const u8 gText_ThunderChoice[] = _("THUNDER");
+const u8 gText_FireChoice[] = _("FIRE");
+const u8 gText_DawnChoice[] = _("DAWN");
+const u8 gText_DuskChoice[] = _("DUSK");
+const u8 gText_IceChoice[] = _("ICE");
+const u8 gText_LeafChoice[] = _("LEAF");
+const u8 gText_ShinyChoice[] = _("SHINY");
+const u8 gText_MagatamaChoice[] = _("MAGATAMA");

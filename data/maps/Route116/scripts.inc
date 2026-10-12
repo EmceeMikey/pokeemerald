@@ -446,8 +446,8 @@ Route116_Text_RouteSignRustboro:
 Route116_Text_RusturfTunnelSign:
 	.string "RUSTURF TUNNEL\n"
 	.string "“Linking RUSTBORO and VERDANTURF\p"
-	.string "“The tunnel project has been\n"
-	.string "canceled.”$"
+	.string "“The tunnel project is nearing\n"
+	.string "completion!”$"
 
 Route116_Text_TunnelersRestHouse:
 	.string "TUNNELER'S REST HOUSE$"

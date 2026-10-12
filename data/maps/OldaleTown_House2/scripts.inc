@@ -10,11 +10,11 @@ OldaleTown_House2_EventScript_Man::
 	end
 
 OldaleTown_House2_Text_PokemonLevelUp:
-	.string "When POKéMON battle, they eventually\n"
-	.string "level up and become stronger.$"
+	.string "I heard ROCK-type POKéMON are weak to\n"
+	.string "AURAL-type moves.  I wonder why?$"
 
 OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon:
-	.string "If the POKéMON with you become\n"
-	.string "stronger, you'll be able to go farther\l"
-	.string "away from here.$"
+	.string "We still know so little about POKéMON.\p"
+	.string "Humanity has a responsibility to learn\n"
+	.string "all we can about this world!$"
 

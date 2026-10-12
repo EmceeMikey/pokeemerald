@@ -771,6 +771,19 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_MultiStoneChoice[] =
+{
+    {gText_WaterChoice},
+    {gText_ThunderChoice},
+    {gText_FireChoice},
+    {gText_DawnChoice},
+    {gText_DuskChoice},
+    {gText_IceChoice},
+    {gText_LeafChoice},
+    {gText_ShinyChoice},
+    {gText_MagatamaChoice},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -898,6 +911,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
+    [MULTI_STONE_CHOICE]               = MULTICHOICE(MultichoiceList_MultiStoneChoice)
 };
 
 const u8 *const gStdStrings[] =

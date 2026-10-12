@@ -1098,8 +1098,8 @@ static const u8 sPokeblockCaseDesc[] = _(
     "a BERRY BLENDER.");
 
 static const u8 sLetterDesc[] = _(
-    "A letter to STEVEN\n"
-    "from the PRESIDENT\n"
+    "An unusual POKéMON EGG\n"
+    "for the PRESIDENT\n"
     "of the DEVON CORP.");
 
 static const u8 sEonTicketDesc[] = _(

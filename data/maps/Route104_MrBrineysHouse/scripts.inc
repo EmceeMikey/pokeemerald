@@ -22,7 +22,7 @@ Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos::
 Route104_MrBrineysHouse_EventScript_Briney::
 	lock
 	faceplayer
-	call_if_unset FLAG_MR_BRINEY_SAILING_INTRO, Route104_MrBrineysHouse_EventScript_SailingIntro
+	goto_if_unset FLAG_MR_BRINEY_SAILING_INTRO, Route104_MrBrineysHouse_EventScript_SailingIntro
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, Route104_MrBrineysHouse_EventScript_SailBothDeliveries
 	goto_if_unset FLAG_DELIVERED_DEVON_GOODS, Route104_MrBrineysHouse_EventScript_SailDeliverPackage
 	goto Route104_MrBrineysHouse_EventScript_WhereAreWeBound
@@ -31,9 +31,7 @@ Route104_MrBrineysHouse_EventScript_Briney::
 Route104_MrBrineysHouse_EventScript_SailingIntro::
 	setflag FLAG_MR_BRINEY_SAILING_INTRO
 	msgbox Route104_MrBrineysHouse_Text_WaitUpPeeko, MSGBOX_DEFAULT
-	msgbox Route104_MrBrineysHouse_Text_ItsYouLetsSailToDewford, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Route104_MrBrineysHouse_EventScript_DeclineDeliverySailing
-	goto Route104_MrBrineysHouse_EventScript_SailToDewford
+	msgbox Route104_MrBrineysHouse_Text_ItsYouLetsSailToDewford, MSGBOX_NPC
 	end
 
 Route104_MrBrineysHouse_EventScript_WhereAreWeBound::
@@ -104,19 +102,19 @@ Route104_MrBrineysHouse_Text_ItsYouLetsSailToDewford:
 	.string "We owe so much to you!\p"
 	.string "What's that?\n"
 	.string "You want to sail with me?\p"
-	.string "Hmhm…\p"
-	.string "You have a LETTER bound for DEWFORD\n"
-	.string "and a package for SLATEPORT, then?\p"
-	.string "Quite the busy life you must lead!\p"
-	.string "But, certainly, what you're asking is\n"
-	.string "no problem at all.\p"
-	.string "You've come to the right man!\n"
-	.string "We'll set sail for DEWFORD.$"
+	.string "Hmhm…  I would, but…\p"
+	.string "There's just one small problem.\n"
+	.string "Some thugs dressed in goofy\l"
+	.string "clothes came by and commandeered my\l"
+	.string "vessel!  I haven't the slightest\l"
+	.string "idea what those goons plan to do\l"
+	.string "with it…$"
 
 Route104_MrBrineysHouse_Text_SetSailForDewford:
-	.string "MR. BRINEY: DEWFORD it is, then!\p"
-	.string "Anchors aweigh!\n"
-	.string "PEEKO, we're setting sail, my darling!$"
+	.string "It's SLATEPORT you're off to, is it?\p"
+	.string "You could check up on that old\n"
+	.string "land-bridge they were building out\l"
+	.string "past OLDALE TOWN.$"
 
 Route104_MrBrineysHouse_Text_DeclineDeliverySail:
 	.string "MR. BRINEY: Is that so?\n"

@@ -3019,6 +3019,16 @@ extern const u8 gText_PkmnForSwap[];
 extern const u8 gText_SamePkmnInPartyAlready[];
 extern const u8 gText_Cancel3[];
 
+extern const u8 gText_WaterChoice[];
+extern const u8 gText_ThunderChoice[];
+extern const u8 gText_FireChoice[];
+extern const u8 gText_DawnChoice[];
+extern const u8 gText_DuskChoice[];
+extern const u8 gText_IceChoice[];
+extern const u8 gText_LeafChoice[];
+extern const u8 gText_ShinyChoice[];
+extern const u8 gText_MagatamaChoice[];
+
 // Naming Screen
 extern const u8 gText_MoveOkBack[];
 extern const u8 gText_YourName[];

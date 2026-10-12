@@ -1240,6 +1240,8 @@ SECTIONS {
         sound/songs/midi/ph_nurse_held.o(.rodata);
         sound/songs/midi/ph_nurse_solo.o(.rodata);
         sound/songs/midi/mus_pocket_rocket_battle.o(.rodata);
+        sound/songs/midi/mus_formanaphy.o(.rodata);
+        sound/songs/midi/mus_file_select.o(.rodata);
     } > ROM =0
 
     lib_rodata :

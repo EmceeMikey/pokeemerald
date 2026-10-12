@@ -241,7 +241,7 @@ RustboroCity_EventScript_Man2::
 
 RustboroCity_EventScript_StolenGoodsTrigger0::
 	lockall
-	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 14, 21
+	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 10, 21
 	setobjectmovementtype LOCALID_RUSTBORO_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_RIGHT
 	setvar VAR_0x8004, 0
 	goto RustboroCity_EventScript_StolenGoodsScene
@@ -249,7 +249,7 @@ RustboroCity_EventScript_StolenGoodsTrigger0::
 
 RustboroCity_EventScript_StolenGoodsTrigger1::
 	lockall
-	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 14, 21
+	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 10, 21
 	setobjectmovementtype LOCALID_RUSTBORO_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_RIGHT
 	setvar VAR_0x8004, 1
 	goto RustboroCity_EventScript_StolenGoodsScene
@@ -257,7 +257,7 @@ RustboroCity_EventScript_StolenGoodsTrigger1::
 
 RustboroCity_EventScript_StolenGoodsTrigger2::
 	lockall
-	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 14, 21
+	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 10, 21
 	setobjectmovementtype LOCALID_RUSTBORO_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_RIGHT
 	setvar VAR_0x8004, 2
 	goto RustboroCity_EventScript_StolenGoodsScene
@@ -265,7 +265,7 @@ RustboroCity_EventScript_StolenGoodsTrigger2::
 
 RustboroCity_EventScript_StolenGoodsTrigger3::
 	lockall
-	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 14, 21
+	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 10, 21
 	setobjectmovementtype LOCALID_RUSTBORO_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_RIGHT
 	setvar VAR_0x8004, 3
 	goto RustboroCity_EventScript_StolenGoodsScene
@@ -273,7 +273,7 @@ RustboroCity_EventScript_StolenGoodsTrigger3::
 
 RustboroCity_EventScript_StolenGoodsTrigger4::
 	lockall
-	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 14, 21
+	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 10, 21
 	setobjectmovementtype LOCALID_RUSTBORO_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_RIGHT
 	setvar VAR_0x8004, 4
 	goto RustboroCity_EventScript_StolenGoodsScene
@@ -360,6 +360,10 @@ RustboroCity_Movement_GruntEscapeExtended:
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
 	walk_fast_up
 	walk_fast_up
 	walk_fast_up
@@ -381,6 +385,10 @@ RustboroCity_Movement_GruntEscape:
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
 	walk_fast_up
 	walk_fast_up
 	walk_fast_up
@@ -393,6 +401,10 @@ RustboroCity_Movement_GruntEscape:
 	step_end
 
 RustboroCity_Movement_EmployeeChaseGrunt1:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_right
 	walk_right
 	walk_right
@@ -1012,6 +1024,300 @@ RustboroCity_EventScript_Boy1::
 	msgbox RustboroCity_Text_YouCanHave2On2Battle, MSGBOX_NPC
 	end
 
+RustboroCity_EventScript_ShowSchool0::
+	lockall
+	setvar VAR_0x8008, 0
+	goto RustboroCity_EventScript_ShowGymToPlayer
+	end
+
+RustboroCity_EventScript_ShowSchool1::
+	lockall
+	setvar VAR_0x8008, 1
+	goto RustboroCity_EventScript_ShowGymToPlayer
+	end
+
+RustboroCity_EventScript_ShowSchool2::
+	lockall
+	setvar VAR_0x8008, 2
+	goto RustboroCity_EventScript_ShowGymToPlayer
+	end
+
+RustboroCity_EventScript_ShowSchool3::
+	lockall
+	setvar VAR_0x8008, 3
+	goto RustboroCity_EventScript_ShowGymToPlayer
+	end
+
+RustboroCity_EventScript_ShowGymToPlayer::
+	applymovement LOCALID_MAN_1, Common_Movement_FacePlayer
+	waitmovement 0
+	playbgm MUS_FOLLOW_ME, FALSE
+	playse SE_PIN
+	applymovement LOCALID_MAN_1, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_MAN_1, Common_Movement_Delay48
+	waitmovement 0
+	call_if_eq VAR_0x8008, 2, RustboroCity_EventScript_ManApproachPlayer2
+	call_if_eq VAR_0x8008, 3, RustboroCity_EventScript_ManApproachPlayer3
+	msgbox RustboroCity_Text_ManApproachPlayer, MSGBOX_DEFAULT
+	closemessage
+	call_if_eq VAR_0x8008, 0, RustboroCity_EventScript_LeadPlayerToSchool0
+	call_if_eq VAR_0x8008, 1, RustboroCity_EventScript_LeadPlayerToSchool1
+	call_if_eq VAR_0x8008, 2, RustboroCity_EventScript_LeadPlayerToSchool2
+	call_if_eq VAR_0x8008, 3, RustboroCity_EventScript_LeadPlayerToSchool3
+	msgbox RustboroCity_Text_ManGoTooFar, MSGBOX_DEFAULT
+	applymovement LOCALID_MAN_1, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	msgbox RustboroCity_Text_ThisIsTrainerSchool, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MAN_1, RustboroCity_Movement_ManWalkBackHome
+	waitmovement 0
+	fadedefaultbgm
+	releaseall
+	end
+
+RustboroCity_EventScript_ManApproachPlayer2::
+	applymovement LOCALID_MAN_1, Common_Movement_WalkUp
+	waitmovement 0
+	return
+
+RustboroCity_EventScript_ManApproachPlayer3::
+	applymovement LOCALID_MAN_1, RustboroCity_Movement_ManApproachPlayer
+	waitmovement 0
+	return
+
+RustboroCity_EventScript_LeadPlayerToSchool0::
+	applymovement LOCALID_MAN_1, RustboroCity_Movement_ManWalkToGym0
+	applymovement LOCALID_PLAYER, RustboroCity_Movement_PlayerWalkToGym0
+	waitmovement 0
+	return
+
+RustboroCity_EventScript_LeadPlayerToSchool1::
+	applymovement LOCALID_MAN_1, RustboroCity_Movement_ManWalkToGym1
+	applymovement LOCALID_PLAYER, RustboroCity_Movement_PlayerWalkToGym1
+	waitmovement 0
+	return
+
+RustboroCity_EventScript_LeadPlayerToSchool2::
+	applymovement LOCALID_MAN_1, RustboroCity_Movement_ManWalkToGym2
+	applymovement LOCALID_PLAYER, RustboroCity_Movement_PlayerWalkToGym2
+	waitmovement 0
+	return
+
+RustboroCity_EventScript_LeadPlayerToSchool3::
+	applymovement LOCALID_MAN_1, RustboroCity_Movement_ManWalkToGym3
+	applymovement LOCALID_PLAYER, RustboroCity_Movement_PlayerWalkToGym3
+	waitmovement 0
+	return
+	
+RustboroCity_Movement_ManWalkToGym0:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RustboroCity_Movement_ManWalkToGym1:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RustboroCity_Movement_ManWalkToGym2:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RustboroCity_Movement_ManWalkToGym3:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RustboroCity_Movement_PlayerWalkToGym0:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RustboroCity_Movement_PlayerWalkToGym1:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RustboroCity_Movement_PlayerWalkToGym2:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RustboroCity_Movement_PlayerWalkToGym3:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RustboroCity_Movement_ManApproachPlayer:
+	walk_up
+	walk_up
+	step_end
+
+RustboroCity_Movement_ManWalkBackHome:
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
 RustboroCity_Text_WeShortenItToDevon:
 	.string "The DEVON CORPORATION…\n"
 	.string "We all just shorten it to DEVON.\p"
@@ -1222,8 +1528,8 @@ RustboroCity_Text_TunnelNearingCompletion:
 	.string "“Timesaving tunnel nearing\n"
 	.string "completion!”\p"
 	.string "…Is what it says on the sign, but\n"
-	.string "there's also a big “X” splashed\l"
-	.string "across it in red paint…$"
+	.string "underneath the lettering is an older\l"
+	.string "sign saying it was canceled…$"
 
 RustboroCity_Text_DevonCorpSign:
 	.string "DEVON CORPORATION\p"
@@ -1288,3 +1594,20 @@ RustboroCity_Text_YouCanHave2On2Battle:
 	.string "they'll both challenge you.\p"
 	.string "Don't you think it'd be cool if you\n"
 	.string "could beat two TRAINERS by yourself?$"
+
+RustboroCity_Text_ManApproachPlayer:
+	.string "Hey, you!  Don't tell me-- you're\n"
+	.string "thinking about challenging this GYM?\p"
+	.string "You'll need to brush up on your\n"
+	.string "knowledge before you attempt that.\p"
+	.string "FOLLOW ME to the TRAINER'S SCHOOL!$"
+
+RustboroCity_Text_ManGoTooFar:
+	.string "Whoops!  Almost walked straight\n"
+	.string "past the SCHOOL!$"
+
+RustboroCity_Text_ThisIsTrainerSchool:
+	.string "Anyway, here it is.  I heard the\n"
+	.string "LEADER, ROXANNE, recently donated\l"
+	.string "a collection of rare STONES to the\l"
+	.string "SCHOOL.  You should go see!$"

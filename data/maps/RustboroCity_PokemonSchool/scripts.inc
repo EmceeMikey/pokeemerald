@@ -74,21 +74,128 @@ RustboroCity_PokemonSchool_EventScript_StudentNotebook::
 	msgbox RustboroCity_PokemonSchool_Text_StudentsNotes, MSGBOX_SIGN
 	end
 
+RustboroCity_PokemonSchool_EventScript_StoneCollection0::
+	msgbox RustboroCity_PokemonSchool_Text_StoneCollection0, MSGBOX_NPC
+	end
+
+RustboroCity_PokemonSchool_EventScript_StoneCollection1::
+	msgbox RustboroCity_PokemonSchool_Text_StoneCollection1, MSGBOX_NPC
+	end
+
+RustboroCity_PokemonSchool_EventScript_StoneCollection2::
+	msgbox RustboroCity_PokemonSchool_Text_StoneCollection2, MSGBOX_NPC
+	end
+
+RustboroCity_PokemonSchool_EventScript_StoneCollection3::
+	msgbox RustboroCity_PokemonSchool_Text_StoneCollection3, MSGBOX_NPC
+	end
+
+RustboroCity_PokemonSchool_EventScript_StoneCollection4::
+	msgbox RustboroCity_PokemonSchool_Text_StoneCollection4, MSGBOX_NPC
+	end
+
 RustboroCity_PokemonSchool_EventScript_Teacher::
 	lock
 	faceplayer
+	setvar VAR_RUSTBORO_CITY_STATE, 1
 	goto_if_set FLAG_RECEIVED_QUICK_CLAW, RustboroCity_PokemonSchool_EventScript_GaveQuickClaw
-	call_if_eq VAR_FACING, DIR_EAST, RustboroCity_PokemonSchool_EventScript_TeacherCheckOnStudentsEast
-	call_if_eq VAR_FACING, DIR_WEST, RustboroCity_PokemonSchool_EventScript_TeacherCheckOnStudentsWest
 	msgbox RustboroCity_PokemonSchool_Text_StudentsWhoDontStudyGetQuickClaw, MSGBOX_DEFAULT
-	giveitem ITEM_QUICK_CLAW
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
+	setvar VAR_0x8004, 1
+	specialvar VAR_RESULT, ScriptGetPokedexInfo
+	goto_if_lt VAR_0x8006, 20, RustboroCity_PokemonSchool_EventScript_NotEnoughMons
+	message RustboroCity_PokemonSchool_Text_JoviCheckForTwentyMons
+	waitmessage
+	goto RustboroCity_PokemonSchool_EventScript_StoneChoice
+
+RustboroCity_PokemonSchool_EventScript_StoneChoice::
+	multichoicegrid 15, 4, MULTI_STONE_CHOICE, 3, 1
+	switch VAR_RESULT
+	case 0, RustboroCity_PokemonSchool_EventScript_GiveStoneWater
+	case 1, RustboroCity_PokemonSchool_EventScript_GiveStoneThunder
+	case 2, RustboroCity_PokemonSchool_EventScript_GiveStoneFire
+	case 3, RustboroCity_PokemonSchool_EventScript_GiveStoneDawn
+	case 4, RustboroCity_PokemonSchool_EventScript_GiveStoneDusk
+	case 5, RustboroCity_PokemonSchool_EventScript_GiveStoneIce
+	case 6, RustboroCity_PokemonSchool_EventScript_GiveStoneLeaf
+	case 7, RustboroCity_PokemonSchool_EventScript_GiveStoneShiny
+	case 8, RustboroCity_PokemonSchool_EventScript_GiveStoneMagatama
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
-	setflag FLAG_RECEIVED_QUICK_CLAW
 	release
 	end
+
+RustboroCity_PokemonSchool_EventScript_GiveStoneWater:
+	msgbox RustboroCity_PokemonSchool_Text_GiveStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, FALSE, RustboroCity_PokemonSchool_EventScript_StoneChoice
+	giveitem ITEM_WATER_STONE
+	closemessage
+	setflag FLAG_RECEIVED_QUICK_CLAW
+	return
+
+RustboroCity_PokemonSchool_EventScript_GiveStoneThunder:
+	msgbox RustboroCity_PokemonSchool_Text_GiveStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, FALSE, RustboroCity_PokemonSchool_EventScript_StoneChoice
+	giveitem ITEM_THUNDER_STONE
+	closemessage
+	setflag FLAG_RECEIVED_QUICK_CLAW
+	return
+
+RustboroCity_PokemonSchool_EventScript_GiveStoneFire:
+	msgbox RustboroCity_PokemonSchool_Text_GiveStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, FALSE, RustboroCity_PokemonSchool_EventScript_StoneChoice
+	giveitem ITEM_FIRE_STONE
+	closemessage
+	setflag FLAG_RECEIVED_QUICK_CLAW
+	return
+
+RustboroCity_PokemonSchool_EventScript_GiveStoneDawn:
+	msgbox RustboroCity_PokemonSchool_Text_GiveStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, FALSE, RustboroCity_PokemonSchool_EventScript_StoneChoice
+	giveitem ITEM_DAWN_STONE
+	closemessage
+	setflag FLAG_RECEIVED_QUICK_CLAW
+	return
+
+RustboroCity_PokemonSchool_EventScript_GiveStoneDusk:
+	msgbox RustboroCity_PokemonSchool_Text_GiveStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, FALSE, RustboroCity_PokemonSchool_EventScript_StoneChoice
+	giveitem ITEM_DUSK_STONE
+	closemessage
+	setflag FLAG_RECEIVED_QUICK_CLAW
+	return
+
+RustboroCity_PokemonSchool_EventScript_GiveStoneIce:
+	msgbox RustboroCity_PokemonSchool_Text_GiveStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, FALSE, RustboroCity_PokemonSchool_EventScript_StoneChoice
+	giveitem ITEM_ICE_STONE
+	closemessage
+	setflag FLAG_RECEIVED_QUICK_CLAW
+	return
+
+RustboroCity_PokemonSchool_EventScript_GiveStoneLeaf:
+	msgbox RustboroCity_PokemonSchool_Text_GiveStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, FALSE, RustboroCity_PokemonSchool_EventScript_StoneChoice
+	giveitem ITEM_LEAF_STONE
+	closemessage
+	setflag FLAG_RECEIVED_QUICK_CLAW
+	return
+
+RustboroCity_PokemonSchool_EventScript_GiveStoneShiny:
+	msgbox RustboroCity_PokemonSchool_Text_GiveStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, FALSE, RustboroCity_PokemonSchool_EventScript_StoneChoice
+	giveitem ITEM_SHINY_STONE
+	closemessage
+	setflag FLAG_RECEIVED_QUICK_CLAW
+	return
+
+RustboroCity_PokemonSchool_EventScript_GiveStoneMagatama:
+	msgbox RustboroCity_PokemonSchool_Text_GiveStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, FALSE, RustboroCity_PokemonSchool_EventScript_StoneChoice
+	giveitem ITEM_MAGATAMA_STONE
+	closemessage
+	setflag FLAG_RECEIVED_QUICK_CLAW
+	return
 
 RustboroCity_PokemonSchool_EventScript_TeacherCheckOnStudentsEast::
 	applymovement VAR_LAST_TALKED, RustboroCity_PokemonSchool_Movement_TeacherCheckOnStudentsEast
@@ -199,6 +306,10 @@ RustboroCity_PokemonSchool_EventScript_ScottWatchStudents::
 	release
 	end
 
+RustboroCity_PokemonSchool_EventScript_NotEnoughMons::
+	msgbox RustboroCity_PokemonSchool_Text_JoviNotEnoughMons, MSGBOX_NPC
+	end
+
 RustboroCity_PokemonSchool_Text_BlackboardListsStatusChanges:
 	.string "The blackboard lists status changes\n"
 	.string "that may affect POKéMON in battle.$"
@@ -244,20 +355,25 @@ RustboroCity_PokemonSchool_Text_ExplainFreeze:
 	.string "Thaw it out using an ICE HEAL.$"
 
 RustboroCity_PokemonSchool_Text_StudentsWhoDontStudyGetQuickClaw:
-	.string "Students who don't study get a little\n"
-	.string "taste of my QUICK CLAW.\p"
-	.string "Whether or not you are a good student \n"
-	.string "will be evident from the way you use\l"
-	.string "this item.$"
+	.string "Heyoo!  Bet you didn't expect to find\n"
+	.string "me teaching in the TRAINER'S SCHOOL!\p"
+	.string "Anyway, some preppy girl came in here\n"
+	.string "and gave me some STONES.  You wouldn't\l"
+	.string "catch me wearing a dress like that out\l"
+	.string "and about, that's for sure!\p"
+	.string "Oh, but my brother said I should give\n"
+	.string "you one!  That is… as long as you've\l"
+	.string "been filling out your POKéDEX for me!\p"
+	.string "So, do you have data on 20 species of\n"
+	.string "POKéMON?  Let's see it, girly!$"
 
 RustboroCity_PokemonSchool_Text_ExplainQuickClaw:
-	.string "A POKéMON holding the QUICK CLAW will\n"
-	.string "occasionally speed up and get to move\l"
-	.string "before its opponent.\p"
-	.string "There are many other items that are\n"
-	.string "meant to be held by POKéMON.\p"
-	.string "Just those alone will give you many\n"
-	.string "topics to study!$"
+	.string "So?  Are you gonna use that STONE\n"
+	.string "or what?  My brother kept saying,\l"
+	.string "“I can't use it!  What if I need it\l"
+	.string "later?”  And then he beat TEAM CIPHER\l"
+	.string "without ever using it!  Wowee, what a\l"
+	.string "crazy guy, am I right?$"
 
 RustboroCity_PokemonSchool_Text_TradingRightNow:
 	.string "I'm trading POKéMON with my friend\n"
@@ -349,3 +465,28 @@ RustboroCity_PokemonSchool_Text_ScottMetAlreadyStoneBadge:
 	.string "It's hard to tell what you're like as\n"
 	.string "a TRAINER from a LEAGUE BADGE.$"
 
+RustboroCity_PokemonSchool_Text_StoneCollection0:
+	.string "It's a WATER STONE and a THUNDER STONE!$"
+
+RustboroCity_PokemonSchool_Text_StoneCollection1:
+	.string "It's a FIRE STONE and a DAWN STONE!$"
+
+RustboroCity_PokemonSchool_Text_StoneCollection2:
+	.string "It's a DUSK STONE and an ICE STONE!$"
+
+RustboroCity_PokemonSchool_Text_StoneCollection3:
+	.string "It's a LEAF STONE and a SHINY STONE!$"
+
+RustboroCity_PokemonSchool_Text_StoneCollection4:
+	.string "It's a MAGATAMA and a SUN STONE!$"
+
+RustboroCity_PokemonSchool_Text_JoviNotEnoughMons:
+	.string "Wowee!  This is… not nearly enough!\n"
+	.string "Get out there and catch stuff!$"
+
+RustboroCity_PokemonSchool_Text_JoviCheckForTwentyMons:
+	.string "Wowee!  This is… so breathtaking…\n"
+	.string "You can take your pick of STONE!$"
+
+RustboroCity_PokemonSchool_Text_GiveStone:
+	.string "You sure that's the STONE you want?$"

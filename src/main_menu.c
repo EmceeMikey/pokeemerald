@@ -37,6 +37,7 @@
 #include "title_screen.h"
 #include "window.h"
 #include "mystery_gift_menu.h"
+#include "m4a.h"
 
 /*
  * Main menu state machine
@@ -872,6 +873,7 @@ static void Task_DisplayMainMenu(u8 taskId)
                 break;
         }
         gTasks[taskId].func = Task_HighlightSelectedMainMenuItem;
+        m4aSongNumStart(MUS_FILE_SELECT);
     }
 }
 
@@ -888,6 +890,7 @@ static bool8 HandleMainMenuInput(u8 taskId)
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
+        FadeOutBGM(3);
         IsWirelessAdapterConnected();   // why bother calling this here? debug? Task_HandleMainMenuAPressed will check too
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
         gTasks[taskId].func = Task_HandleMainMenuAPressed;
